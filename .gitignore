@@ -1,0 +1,8 @@
+node_modules/
+dist/
+*.pdf
+*.epub
+backend/__pycache__/
+backend/*.egg-info/
+progress_subset_graph_*.json
+Graph/
