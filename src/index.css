@@ -1,0 +1,70 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  width: 100dvw;
+  height: 100dvh;
+  overflow: hidden;
+  overscroll-behavior: none;
+  background: #0d0d0d;
+  color: #f0f0f0;
+}
+
+/* Make rem units follow the adjustable base font size */
+html {
+  font-size: var(--font-base-size);
+}
+
+/* Default UI font family follows CSS variable */
+body {
+  font-family: var(--font-ui);
+}
+
+:root {
+  /* Font families */
+  --font-ui: 'Inter Variable', Inter, sans-serif;
+  --font-serif: 'Spectral', serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', 'Courier New', monospace;
+
+  /* Sizes (px) — adjustable via settings UI */
+  --font-base-size: 16px;
+  --font-title-size: 19.2px; /* 1.2rem */
+  --font-nickname-size: 11.5px; /* 0.72rem */
+  --font-small-size: 12.48px; /* 0.78rem */
+  --font-bio-size: 14px; /* 0.875rem */
+  --node-label-base-size: 12; /* screen px for canvas labels */
+
+  /* Side panel width */
+  --side-panel-width: 340px;
+}
+
+canvas {
+  touch-action: none;
+  display: block;
+  outline: none;
+}
+
+/* Scrollbar styling for detail panels */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.22);
+}

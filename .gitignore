@@ -1,0 +1,133 @@
+# Node modules
+/node_modules/
+
+# Vite cache
+/.vite/
+node_modules/.vite/
+
+# Build output
+/dist/
+
+# Repo-local graph coverage output
+
+# Editor directories and files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+
+# Env files
+.env
+.env.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+# Socket files (root cause of git add failure - Git cannot index Unix sockets)
+*.sock
+
+# Environment files (VPN credentials, API keys)
+.env
+.env.*
+
+# Process ID files
+*.pid
+
+# Log files
+*.log
+*.log.*
+
+# Database files
+*.db
+*.db-shm
+*.db-wal
+
+# Cache directories
+**/cache/
+**/Cache/
+
+# Backup directories
+**/Backups/
+**/backup/
+**/backups/
+
+# Sentry crash reporting
+**/Sentry/
+
+# ASP.NET runtime artifacts
+**/asp/
+
+# Temporary/transient files
+*.tmp
+*.temp
+*.bak
+**/transcoding-temp/
+
+# SABnzbd runtime data
+Config/sabnzbd/admin/
+Config/sabnzbd/Downloads/
+Config/sabnzbd/*.sab
+
+# Calibre runtime data (sockets, caches, trash, voice models)
+Config/calibre/.XDG/
+Config/calibre/.cache/
+Config/calibre/.caltrash/
+Config/calibre/Calibre Library/.caltrash/
+*.onnx
+
+# Calibre Library ebook content (large binary files)
+*.epub
+*.mobi
+*.azw3
+*.pdf
+
+# qBittorrent IPC socket
+Config/qbittorrent/qBittorrent/ipc-socket
+
+# qBittorrent GeoIP database
+Config/qbittorrent/qBittorrent/GeoDB/
+
+# Bazarr cache blobs
+Config/bazarr/cache/
+
+# Media files (large binary content - track structure only)
+Data/Media/**
+!Data/Media/
+!Data/Media/*/
+
+# Torrent download staging
+Data/Torrents/**
+!Data/Torrents/
+!Data/Torrents/*/
+
+# Usenet download staging
+Data/Usenet/**
+!Data/Usenet/
+!Data/Usenet/*/
+
+# Emby server data
+Config/emby/cache/
+Config/emby/data/
+Config/emby/transcoding-temp/
+
+# Audiobookshelf streams/cache
+Config/audiobookshelf/metadata/cache/
+Config/audiobookshelf/metadata/streams/
+
+# Prowlarr definitions (auto-downloaded)
+Config/prowlarr/Definitions/
+Config/prowlarr/INFO
+
+# Sonarr/Radarr/Whisparr runtime
+Config/sonarr/INFO
+Config/radarr/INFO
+Config/sonarr/MediaCover/
+Config/radarr/MediaCover/
+Config/whisparr/MediaCover/
+
+# Cloud-agent scope: track only user-managed compose definitions in Config/
+Config/**
+!Config/docker-compose.yml
+!Config/oracle-docker-compose.yml
