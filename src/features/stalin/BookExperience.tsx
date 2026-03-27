@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect, useMemo } from "react";
-import ForceGraph, { RenderSettings } from "../../components/ForceGraph";
+import StalinGraph, { RenderSettings } from "../../components/StalinGraph";
 import NodeDetail from "../../components/NodeDetail";
 import FilterBar from "../../components/FilterBar";
 import SettingsWheel from "../../components/SettingsWheel";
@@ -232,7 +232,7 @@ export default function BookExperience() {
       />
       {viewMode === "graph" && (
         <div id="graph-panel" role="tabpanel" aria-labelledby="graph-tab">
-          <ForceGraph
+          <StalinGraph
             data={graphData}
             activeFilters={activeFilters}
             onNodeClick={handleNodeClick}

@@ -27,7 +27,7 @@ src/
 │       ├── ch1.json                 # Cumulative through Chapter 1
 │       └── ch2.json                 # Cumulative through Chapter 2
 ├── components/
-│   ├── ForceGraph.tsx               # Force-directed graph renderer ("Stalin" layout)
+│   ├── StalinGraph.tsx              # Force-directed graph renderer ("Stalin" layout)
 │   ├── CharacterTable.tsx           # Searchable table view of characters
 │   ├── FilterBar.tsx                # Top toolbar: chapter selector, view tabs, filters, search
 │   ├── NodeDetail.tsx               # Side panel: character detail (brief in graph, full in table)
@@ -42,7 +42,7 @@ src/
 
 ### Graph Layout Naming
 - **"Stalin" layout** = force-directed / spreading-outward graph (diverse figures,
-  independent positions). Implemented in `ForceGraph.tsx`.
+  independent positions). Implemented in `StalinGraph.tsx`.
 - **"Bülow" layout** = hierarchical / top-to-bottom tree (linear chain of command).
   Not yet implemented; reserve this name for a future tree-based renderer.
 

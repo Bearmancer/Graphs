@@ -69,7 +69,7 @@ export interface RenderSettings {
   nodeLabelBase?: number;
 }
 
-export default function ForceGraph({
+export default function StalinGraph({
   data,
   activeFilters,
   onNodeClick,
