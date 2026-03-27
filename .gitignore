@@ -131,3 +131,5 @@ Config/whisparr/MediaCover/
 Config/**
 !Config/docker-compose.yml
 !Config/oracle-docker-compose.yml
+node_modules/
+package-lock.json
