@@ -15,19 +15,13 @@ src/
 ├── App.tsx                          # Root component
 ├── main.tsx                         # React entry point
 ├── index.css                        # Global CSS variables (fonts, sizes, colours)
-├── types.ts                         # Shared TypeScript types + colour / label constants
+├── types.ts                         # Deprecated barrel re-export (backwards compat)
 ├── fonts.ts                         # Font option lists for the settings UI
+├── graph-types/
+│   └── index.ts                     # Generic graph types shared by all book variants
 ├── utils/
 │   └── linkHelpers.ts               # Shared helpers for extracting link source/target IDs
-├── data/
-│   ├── graph.json                   # Full chapter-3-recap graph (47 nodes, 66 links)
-│   └── chapters/
-│       ├── index.ts                 # Chapter metadata + data exports
-│       ├── prologue.json            # Prologue-only subset (no spoilers)
-│       ├── ch1.json                 # Cumulative through Chapter 1
-│       └── ch2.json                 # Cumulative through Chapter 2
 ├── components/
-│   ├── StalinGraph.tsx              # Force-directed graph renderer ("Stalin" layout)
 │   ├── CharacterTable.tsx           # Searchable table view of characters
 │   ├── FilterBar.tsx                # Top toolbar: chapter selector, view tabs, filters, search
 │   ├── NodeDetail.tsx               # Side panel: character detail (brief in graph, full in table)
@@ -35,14 +29,24 @@ src/
 │   └── *.module.css                 # CSS Modules for each component
 └── features/
     └── stalin/
-        └── BookExperience.tsx       # Page-level orchestrator (state, layout, data wiring)
+        ├── BookExperience.tsx       # Page-level orchestrator (state, layout, data wiring)
+        ├── StalinGraph.tsx          # Force-directed graph renderer ("Stalin" layout)
+        ├── types.ts                 # Stalin-specific types, colour maps, label maps
+        ├── variant.ts               # GraphVariant instance wiring Stalin's config
+        └── data/
+            ├── graph.json           # Full chapter-3-recap graph (47 nodes, 66 links)
+            └── chapters/
+                ├── index.ts         # Chapter metadata + data exports
+                ├── prologue.json    # Prologue-only subset (no spoilers)
+                ├── ch1.json         # Cumulative through Chapter 1
+                └── ch2.json         # Cumulative through Chapter 2
 ```
 
 ## Key Conventions
 
 ### Graph Layout Naming
 - **"Stalin" layout** = force-directed / spreading-outward graph (diverse figures,
-  independent positions). Implemented in `StalinGraph.tsx`.
+  independent positions). Implemented in `src/features/stalin/StalinGraph.tsx`.
 - **"Bülow" layout** = hierarchical / top-to-bottom tree (linear chain of command).
   Not yet implemented; reserve this name for a future tree-based renderer.
 
@@ -58,8 +62,8 @@ src/
 - Executions by Stalin begin in later chapters (not applicable through ch3).
 
 ### Colour System
-- **Faction colours** → `FACTION_COLORS` in `types.ts` (node fill colour).
-- **Edge/relation colours** → `EDGE_COLORS` in `types.ts`, grouped by category:
+- **Faction colours** → `FACTION_COLORS` in `src/features/stalin/types.ts` (node fill colour).
+- **Edge/relation colours** → `EDGE_COLORS` in `src/features/stalin/types.ts`, grouped by category:
   positive bonds (greens), family/romantic (pinks/ambers), power/hierarchy
   (orange/purple), neutral (cyan), antagonistic (yellow-amber).
 - Always use the canonical constant; never hard-code a hex colour for a
@@ -86,9 +90,9 @@ src/
   every description, every direction arrow.
 
 ## Adding a New Chapter
-1. Create `src/data/chapters/ch<N>.json` — cumulative node + link data
+1. Create `src/features/stalin/data/chapters/ch<N>.json` — cumulative node + link data
    with `laterRelevance` and `laterNote` stripped.
-2. Add an entry in `src/data/chapters/index.ts`.
+2. Add an entry in `src/features/stalin/data/chapters/index.ts`.
 3. Characters who died or were executed in earlier chapters should be
    omitted from the new file and tracked in a "dead / executed" list.
 

@@ -1,16 +1,12 @@
 import type { GraphData } from "../../types";
+import type { ChapterMeta } from "../../../../graph-types";
 
 import prologueData from "./prologue.json";
 import ch1Data from "./ch1.json";
 import ch2Data from "./ch2.json";
 import fullData from "../graph.json";
 
-export interface ChapterMeta {
-  id: string;
-  label: string;
-  description: string;
-  data: GraphData;
-}
+export type { ChapterMeta } from "../../../../graph-types";
 
 const chapters: ChapterMeta[] = [
   {
