@@ -260,6 +260,7 @@ export default function BookExperience() {
         onClose={handleClose}
         panelWidth={panelWidth}
         onRequestPanelWidthChange={handlePanelWidthChange}
+        viewMode={viewMode}
       />
     </>
   );

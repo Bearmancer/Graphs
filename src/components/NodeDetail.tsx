@@ -18,6 +18,8 @@ interface Props {
   onClose: () => void;
   panelWidth?: number;
   onRequestPanelWidthChange?: (w: number) => void;
+  /** "graph" shows a brief summary; "table" shows the full chronological detail. */
+  viewMode?: "graph" | "table";
 }
 
 export default function NodeDetail({
@@ -27,6 +29,7 @@ export default function NodeDetail({
   onClose,
   panelWidth,
   onRequestPanelWidthChange,
+  viewMode = "graph",
 }: Props) {
   const nodeMap = Object.fromEntries(allNodes.map((n) => [n.id, n]));
 
@@ -235,9 +238,11 @@ export default function NodeDetail({
           </div>
         )}
 
-        {relevantLinks.length > 0 && (
+        {viewMode === "table" && relevantLinks.length > 0 && (
           <div className={styles.section}>
-            <div className={styles.sectionLabel}>Relationships</div>
+            <div className={styles.sectionLabel}>
+              Full Chronological Relationships
+            </div>
             <ul className={styles.relList}>
               {relevantLinks.map((link, i) => {
                 const srcId = linkSourceId(link);
