@@ -41,6 +41,24 @@ body {
   --font-bio-size: 14px; /* 0.875rem */
   --node-label-base-size: 12; /* screen px for canvas labels */
 
+  /* Derived sidebar / filter sizes using CSS calc for consistency */
+  --font-filter-pill: 0.62rem;
+  --font-filter-label: 0.65rem;
+  --font-search-input: 0.74rem;
+  --font-search-name: 0.76rem;
+  --font-search-meta: 0.67rem;
+  --font-hint: 0.72rem;
+  --font-table-header: 0.72rem;
+  --font-table-badge: 0.69rem;
+  --font-table-secondary: 0.76rem;
+  --font-table-body: 0.84rem;
+  --font-table-search: 0.88rem;
+  --font-table-title: 1.35rem;
+  --font-table-subtitle: 0.86rem;
+  --font-table-name: 1rem;
+  --font-settings-label: 0.78rem;
+  --font-settings-hint: 0.75rem;
+
   /* Side panel width */
   --side-panel-width: 340px;
 }

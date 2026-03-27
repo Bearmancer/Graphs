@@ -1,19 +1,18 @@
 import { useState, useCallback, useEffect, useMemo } from "react";
-import StalinGraph, { RenderSettings } from "../../components/StalinGraph";
+import ForceGraph, { RenderSettings } from "../../components/ForceGraph";
 import NodeDetail from "../../components/NodeDetail";
 import FilterBar from "../../components/FilterBar";
 import SettingsWheel from "../../components/SettingsWheel";
 import {
   GraphNode,
   GraphLink,
-  GraphData,
   EdgeType,
   EDGE_LABELS,
 } from "../../types";
-import rawData from "../../data/graph.json";
+import chapters from "../../data/chapters";
 import CharacterTable from "../../components/CharacterTable";
 
-const graphData = rawData as unknown as GraphData;
+const DEFAULT_CHAPTER_IDX = chapters.length - 1; // Ch 3 Recap by default
 const ALL_EDGE_TYPES = new Set(Object.keys(EDGE_LABELS) as EdgeType[]);
 
 type AllSettings = {
@@ -83,7 +82,9 @@ function readRootSettings(): AllSettings {
 
 const STORAGE_KEY = "graph-ui-settings";
 
-export default function StalinExperience() {
+export default function BookExperience() {
+  const [chapterIdx, setChapterIdx] = useState(DEFAULT_CHAPTER_IDX);
+  const graphData = chapters[chapterIdx].data;
   const allNodes = graphData.nodes as GraphNode[];
   const [viewMode, setViewMode] = useState<"graph" | "table">("graph");
   const [selectedNode, setSelectedNode] = useState<GraphNode | null>(null);
@@ -220,6 +221,9 @@ export default function StalinExperience() {
         onSearchQueryChange={setSearchQuery}
         searchResults={searchResults}
         onSelectNode={handleSelectNodeFromSearch}
+        chapters={chapters}
+        activeChapterIdx={chapterIdx}
+        onChapterChange={setChapterIdx}
       />
       <SettingsWheel
         settings={settings}
@@ -228,7 +232,7 @@ export default function StalinExperience() {
       />
       {viewMode === "graph" && (
         <div id="graph-panel" role="tabpanel" aria-labelledby="graph-tab">
-          <StalinGraph
+          <ForceGraph
             data={graphData}
             activeFilters={activeFilters}
             onNodeClick={handleNodeClick}

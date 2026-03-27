@@ -47,7 +47,7 @@
   height: 28px;
   border-radius: 50%;
   cursor: pointer;
-  font-size: 0.85rem;
+  font-size: var(--font-table-body);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -257,7 +257,7 @@
 }
 
 .relArrow {
-  font-size: 0.65rem;
+  font-size: var(--font-filter-label);
   color: #666;
   flex-shrink: 0;
 }

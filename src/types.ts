@@ -100,19 +100,50 @@ export const LATER_RELEVANCE_COLORS: Record<LaterRelevance, string> = {
 
 export type EdgeColor = string;
 
+/**
+ * Edge / relationship colours — each relationship type has a distinct,
+ * visually grouped colour so the user can read the graph at a glance.
+ *
+ *   Positive bonds (green family)
+ *     ally          #4CAF50   green
+ *     friend_of     #8BC34A   light green
+ *
+ *   Family / romantic bonds (pink–amber family)
+ *     married_to    #E91E63   pink
+ *     father_of     #FF8F00   amber
+ *     in_love_with  #F06292   pink-red
+ *     family_connection #FFB74D light amber
+ *     godparent_of  #4FC3F7   light blue
+ *
+ *   Power / hierarchy (orange–purple family)
+ *     subordinate   #FF5722   deep orange
+ *     patron_of     #BA68C8   lavender
+ *     bodyguard_of  #78909C   grey
+ *
+ *   Neutral / professional
+ *     colleague_of  #26C6DA   cyan
+ *
+ *   Antagonistic
+ *     rival         #FFC107   yellow-amber
+ */
 export const EDGE_COLORS: Record<EdgeType, string> = {
-  ally: "#4CAF50", // green
-  married_to: "#E91E63", // pink
-  father_of: "#FF8F00", // amber
-  subordinate: "#FF5722", // deep orange
-  rival: "#FFC107", // yellow-amber
-  friend_of: "#8BC34A", // light green
-  bodyguard_of: "#78909C", // grey
-  patron_of: "#BA68C8", // lavender
-  godparent_of: "#4FC3F7", // light blue
-  in_love_with: "#F06292", // pink-red
-  colleague_of: "#26C6DA", // cyan
-  family_connection: "#FFB74D", // light amber
+  // Positive bonds
+  ally: "#4CAF50",
+  friend_of: "#8BC34A",
+  // Family / romantic bonds
+  married_to: "#E91E63",
+  father_of: "#FF8F00",
+  in_love_with: "#F06292",
+  family_connection: "#FFB74D",
+  godparent_of: "#4FC3F7",
+  // Power / hierarchy
+  subordinate: "#FF5722",
+  patron_of: "#BA68C8",
+  bodyguard_of: "#78909C",
+  // Neutral / professional
+  colleague_of: "#26C6DA",
+  // Antagonistic
+  rival: "#FFC107",
 };
 
 export const EDGE_LABELS: Record<EdgeType, string> = {

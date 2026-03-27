@@ -1,10 +1,10 @@
 import { useEffect } from "react";
-import StalinExperience from "./features/stalin/StalinExperience";
+import BookExperience from "./features/stalin/BookExperience";
 
 export default function App() {
   useEffect(() => {
     document.title = "Stalin's Court - Relationship Map";
   }, []);
 
-  return <StalinExperience />;
+  return <BookExperience />;
 }

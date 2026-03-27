@@ -9,6 +9,7 @@ import {
   PARTICLE_EDGES,
   ARROW_EDGES,
 } from "../types";
+import { linkSourceId, linkTargetId } from "../utils/linkHelpers";
 
 interface PhysicsOptions {
   nodeRelSize?: number;
@@ -68,7 +69,7 @@ export interface RenderSettings {
   nodeLabelBase?: number;
 }
 
-export default function StalinGraph({
+export default function ForceGraph({
   data,
   activeFilters,
   onNodeClick,
@@ -137,14 +138,8 @@ export default function StalinGraph({
     if (!hoveredNode) return new Set<string>();
     const ids = new Set([hoveredNode.id]);
     for (const link of data.links) {
-      const src =
-        typeof link.source === "object"
-          ? (link.source as GraphNode).id
-          : link.source;
-      const tgt =
-        typeof link.target === "object"
-          ? (link.target as GraphNode).id
-          : link.target;
+      const src = linkSourceId(link);
+      const tgt = linkTargetId(link);
       if (src === hoveredNode.id) ids.add(tgt);
       if (tgt === hoveredNode.id) ids.add(src);
     }
@@ -238,14 +233,8 @@ export default function StalinGraph({
 
   const getLinkColor = useCallback(
     (link: GraphLink) => {
-      const src =
-        typeof link.source === "object"
-          ? (link.source as GraphNode).id
-          : link.source;
-      const tgt =
-        typeof link.target === "object"
-          ? (link.target as GraphNode).id
-          : link.target;
+      const src = linkSourceId(link);
+      const tgt = linkTargetId(link);
       const dimmed =
         hoveredNode !== null &&
         src !== hoveredNode.id &&
@@ -259,14 +248,8 @@ export default function StalinGraph({
     (link: GraphLink) => {
       const base = Math.max(0.5, link.weight * 0.2);
       if (!hoveredNode) return base;
-      const src =
-        typeof link.source === "object"
-          ? (link.source as GraphNode).id
-          : link.source;
-      const tgt =
-        typeof link.target === "object"
-          ? (link.target as GraphNode).id
-          : link.target;
+      const src = linkSourceId(link);
+      const tgt = linkTargetId(link);
       return src === hoveredNode.id || tgt === hoveredNode.id
         ? base * 1.8
         : base * 0.55;

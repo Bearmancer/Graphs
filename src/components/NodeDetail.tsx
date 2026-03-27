@@ -8,6 +8,7 @@ import {
   LATER_RELEVANCE_COLORS,
   LATER_RELEVANCE_LABELS,
 } from "../types";
+import { linkSourceId, linkTargetId } from "../utils/linkHelpers";
 import styles from "./NodeDetail.module.css";
 
 interface Props {
@@ -44,10 +45,8 @@ export default function NodeDetail({
   if (!node) return null;
 
   const relevantLinks = links.filter((l) => {
-    const srcId =
-      typeof l.source === "object" ? (l.source as GraphNode).id : l.source;
-    const tgtId =
-      typeof l.target === "object" ? (l.target as GraphNode).id : l.target;
+    const srcId = linkSourceId(l);
+    const tgtId = linkTargetId(l);
     return srcId === node.id || tgtId === node.id;
   });
 
@@ -216,14 +215,8 @@ export default function NodeDetail({
             <div className={styles.sectionLabel}>Strongest Ties</div>
             <ul className={styles.keyList}>
               {strongestLinks.map((link, index) => {
-                const srcId =
-                  typeof link.source === "object"
-                    ? (link.source as GraphNode).id
-                    : link.source;
-                const tgtId =
-                  typeof link.target === "object"
-                    ? (link.target as GraphNode).id
-                    : link.target;
+                const srcId = linkSourceId(link);
+                const tgtId = linkTargetId(link);
                 const otherId = srcId === node.id ? tgtId : srcId;
                 const otherNode = nodeMap[otherId];
                 return (
@@ -247,14 +240,8 @@ export default function NodeDetail({
             <div className={styles.sectionLabel}>Relationships</div>
             <ul className={styles.relList}>
               {relevantLinks.map((link, i) => {
-                const srcId =
-                  typeof link.source === "object"
-                    ? (link.source as GraphNode).id
-                    : link.source;
-                const tgtId =
-                  typeof link.target === "object"
-                    ? (link.target as GraphNode).id
-                    : link.target;
+                const srcId = linkSourceId(link);
+                const tgtId = linkTargetId(link);
                 const otherId = srcId === node.id ? tgtId : srcId;
                 const otherNode = nodeMap[otherId];
                 const edgeColor = EDGE_COLORS[link.type as EdgeType] ?? "#888";

@@ -16,6 +16,38 @@
     backdrop-filter: blur(4px);
 }
 
+.chapterSelector {
+    display: inline-flex;
+    gap: 0.25rem;
+    flex-shrink: 0;
+}
+
+.chapterBtn {
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.02);
+    color: #777;
+    border-radius: 999px;
+    font-family: var(--font-ui);
+    font-size: var(--font-filter-pill);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    padding: 0.22rem 0.55rem;
+    cursor: pointer;
+    transition: background 0.12s, color 0.12s;
+    white-space: nowrap;
+}
+
+.chapterBtn[data-active="true"] {
+    color: #FFD700;
+    border-color: rgba(255, 215, 0, 0.4);
+    background: rgba(255, 215, 0, 0.12);
+}
+
+.chapterBtn:hover:not([data-active="true"]) {
+    color: #bbb;
+    background: rgba(255, 255, 255, 0.06);
+}
+
 .viewModes {
     display: inline-flex;
     gap: 0.35rem;
@@ -29,7 +61,7 @@
     color: #9a9a9a;
     border-radius: 999px;
     font-family: var(--font-ui);
-    font-size: 0.62rem;
+    font-size: var(--font-filter-pill);
     font-weight: 700;
     letter-spacing: 0.05em;
     text-transform: uppercase;
@@ -59,7 +91,7 @@
 
 .label {
     font-family: var(--font-ui);
-    font-size: 0.65rem;
+    font-size: var(--font-filter-label);
     font-weight: 700;
     letter-spacing: 0.06em;
     text-transform: uppercase;
@@ -83,7 +115,7 @@
 .pill {
     flex-shrink: 0;
     font-family: var(--font-ui);
-    font-size: 0.62rem;
+    font-size: var(--font-filter-pill);
     font-weight: 600;
     letter-spacing: 0.03em;
     padding: 0.2rem 0.55rem;
@@ -120,7 +152,7 @@
     border-radius: 10px;
     padding: 0.42rem 0.58rem;
     font-family: var(--font-ui);
-    font-size: 0.74rem;
+    font-size: var(--font-search-input);
 }
 
 .searchInput::placeholder {
@@ -162,7 +194,7 @@
     display: block;
     color: #efefef;
     font-family: var(--font-ui);
-    font-size: 0.76rem;
+    font-size: var(--font-search-name);
     font-weight: 600;
 }
 
@@ -171,14 +203,14 @@
     margin-top: 0.15rem;
     color: #969696;
     font-family: var(--font-ui);
-    font-size: 0.67rem;
+    font-size: var(--font-search-meta);
 }
 
 .searchEmpty,
 .modeHint {
     color: #888;
     font-family: var(--font-ui);
-    font-size: 0.72rem;
+    font-size: var(--font-hint);
 }
 
 .searchEmpty {
