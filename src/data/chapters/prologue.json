@@ -1,0 +1,298 @@
+{
+  "nodes": [
+    {
+      "id": "Stalin",
+      "label": "Joseph Stalin",
+      "title": "General Secretary and Bolshevik leader",
+      "faction": "supreme_authority",
+      "centrality": 10,
+      "nicknames": [
+        "Soso",
+        "Koba"
+      ],
+      "bio": "Georgian Bolshevik who rises from underground organiser and Civil War commissar to General Secretary. By the end of chapter 2 he stands at the center of an intimate Kremlin court and a strained marriage to Nadya."
+    },
+    {
+      "id": "Nadya_Alliluyeva",
+      "label": "Nadya Alliluyeva",
+      "title": "Stalin's wife and Industrial Academy student",
+      "faction": "family",
+      "centrality": 9,
+      "nicknames": [
+        "Tatka"
+      ],
+      "bio": "Daughter of the Alliluyev household, committed Bolshevik, and later an Industrial Academy student. The prologue follows her last night after a bitter quarrel with Stalin at Voroshilov's dinner."
+    },
+    {
+      "id": "Molotov",
+      "label": "Vyacheslav Molotov",
+      "title": "Premier and Stalin's closest ally",
+      "faction": "politburo_core",
+      "centrality": 8,
+      "nicknames": [
+        "Iron-Arse"
+      ],
+      "bio": "Disciplined, severe, and tireless, Molotov is the ally who works closest to Stalin. He and Polina live inside the Kremlin village and move in the same domestic circle as the Stalins."
+    },
+    {
+      "id": "Polina_Molotova",
+      "label": "Polina Molotova",
+      "title": "Bolshevik organiser and Molotov's wife",
+      "faction": "politburo_family",
+      "centrality": 7,
+      "nicknames": [
+        "Zhemchuzhina"
+      ],
+      "bio": "Bold and ambitious Bolshevik, admired by her husband and feared by some others. She is Nadya's closest friend and the woman who follows her out into the night after the quarrel."
+    },
+    {
+      "id": "Voroshilov",
+      "label": "Klim Voroshilov",
+      "title": "Defence Commissar",
+      "faction": "military",
+      "centrality": 7,
+      "nicknames": [],
+      "bio": "Genial Defence Commissar and old Tsaritsyn comrade. His apartment hosts the Revolution anniversary dinner that frames the prologue."
+    },
+    {
+      "id": "Ekaterina_Voroshilova",
+      "label": "Ekaterina Voroshilova",
+      "title": "Voroshilov's wife",
+      "faction": "politburo_family",
+      "centrality": 3,
+      "nicknames": [],
+      "bio": "Part of the tight social world of Kremlin wives. Her diary remembers the leadership circle as simple, friendly, and unusually intimate."
+    },
+    {
+      "id": "Bukharin",
+      "label": "Nikolai Bukharin",
+      "title": "Party theorist and former ally",
+      "faction": "enemy_purged",
+      "centrality": 6,
+      "nicknames": [
+        "darling of the Party"
+      ],
+      "bio": "Gifted theorist, painter, and charmer once close to both Stalin and Nadya. By chapter 2 he has been politically beaten by Stalin but still remains emotionally significant in their circle."
+    },
+    {
+      "id": "Yakov_Djugashvili",
+      "label": "Yakov Djugashvili",
+      "title": "Stalin's elder son",
+      "faction": "family",
+      "centrality": 4,
+      "nicknames": [
+        "Yasha"
+      ],
+      "bio": "Stalin's elder son from the first marriage. By the time of the prologue he is back in the Kremlin household after an unsettled youth."
+    },
+    {
+      "id": "Anna_Redens",
+      "label": "Anna Alliluyeva Redens",
+      "title": "Nadya's sister",
+      "faction": "family",
+      "centrality": 3,
+      "nicknames": [],
+      "bio": "Nadya's sister, present in family scenes from the Revolution to the last evening in the prologue."
+    },
+    {
+      "id": "Pavel_Alliluyev",
+      "label": "Pavel Alliluyev",
+      "title": "Red Army officer",
+      "faction": "family",
+      "centrality": 4,
+      "nicknames": [],
+      "bio": "Nadya's brother, working for the Red Army and often returning with gifts from abroad. The dress and pistol tied to the prologue both come through him."
+    },
+    {
+      "id": "Alexander_Yegorov",
+      "label": "Alexander Yegorov",
+      "title": "Red Army commander",
+      "faction": "military",
+      "centrality": 3,
+      "nicknames": [],
+      "bio": "Red Army commander who served with Stalin in the Polish campaign. His family appears in the social world of the 1932 dinner."
+    },
+    {
+      "id": "Galina_Yegorova",
+      "label": "Galina Yegorova",
+      "title": "Film actress and Yegorov's wife",
+      "faction": "politburo_family",
+      "centrality": 3,
+      "nicknames": [],
+      "bio": "Glamorous actress and wife of Alexander Yegorov. Stalin's flirtation with her helps trigger Nadya's anger during the prologue."
+    },
+    {
+      "id": "Carolina_Til",
+      "label": "Carolina Til",
+      "title": "Housekeeper in the Stalin apartment",
+      "faction": "family",
+      "centrality": 3,
+      "nicknames": [],
+      "bio": "Housekeeper in Stalin and Nadya's Kremlin apartment. She discovers Nadya the next morning and raises the alarm."
+    },
+    {
+      "id": "Karl_Pauker",
+      "label": "Karl Pauker",
+      "title": "Security chief in Stalin's entourage",
+      "faction": "nkvd",
+      "centrality": 4,
+      "nicknames": [],
+      "bio": "Former Budapest Opera barber turned security chief in Stalin's entourage. On the night of the prologue he is one of the first men the frightened household turns to."
+    },
+    {
+      "id": "Nikolai_Vlasik",
+      "label": "Nikolai Vlasik",
+      "title": "Bodyguard in Stalin's protective ring",
+      "faction": "nkvd",
+      "centrality": 4,
+      "nicknames": [],
+      "bio": "One of the guards shadowing Stalin's movements. In the prologue's aftermath his recollections help map the last hours before Nadya's death."
+    },
+    {
+      "id": "Yevgenia_Alliluyeva",
+      "label": "Yevgenia \"Zhenya\" Alliluyeva",
+      "title": "Actress and Pavel's wife",
+      "faction": "family",
+      "centrality": 3,
+      "nicknames": [
+        "Zhenya"
+      ],
+      "bio": "Pavel Alliluyev's glamorous wife, known as Zhenya. She arrives with Pavel in the immediate aftermath of Nadya's death and belongs to the close family circle."
+    }
+  ],
+  "links": [
+    {
+      "source": "Stalin",
+      "target": "Molotov",
+      "type": "ally",
+      "weight": 9,
+      "description": "Closest political ally in the Kremlin leadership."
+    },
+    {
+      "source": "Stalin",
+      "target": "Nadya_Alliluyeva",
+      "type": "married_to",
+      "weight": 10,
+      "description": "A difficult but still affectionate marriage at the center of the Kremlin household."
+    },
+    {
+      "source": "Voroshilov",
+      "target": "Stalin",
+      "type": "ally",
+      "weight": 8,
+      "description": "Old Tsaritsyn ally and host of the November dinner."
+    },
+    {
+      "source": "Stalin",
+      "target": "Bukharin",
+      "type": "rival",
+      "weight": 7,
+      "description": "Former ally whose political split with Stalin is still personal."
+    },
+    {
+      "source": "Stalin",
+      "target": "Yakov_Djugashvili",
+      "type": "father_of",
+      "weight": 6,
+      "description": "Yakov is Stalin's son from the first marriage."
+    },
+    {
+      "source": "Molotov",
+      "target": "Polina_Molotova",
+      "type": "married_to",
+      "weight": 7,
+      "description": "A devoted political marriage."
+    },
+    {
+      "source": "Polina_Molotova",
+      "target": "Nadya_Alliluyeva",
+      "type": "friend_of",
+      "weight": 7,
+      "description": "Nadya's closest friend among the Kremlin wives."
+    },
+    {
+      "source": "Voroshilov",
+      "target": "Ekaterina_Voroshilova",
+      "type": "married_to",
+      "weight": 4,
+      "description": "Hosts of one of the Kremlin's busiest households."
+    },
+    {
+      "source": "Bukharin",
+      "target": "Nadya_Alliluyeva",
+      "type": "friend_of",
+      "weight": 5,
+      "description": "One of Nadya's closest friends in the wider Bolshevik family."
+    },
+    {
+      "source": "Anna_Redens",
+      "target": "Nadya_Alliluyeva",
+      "type": "family_connection",
+      "weight": 4,
+      "description": "Older sister present on key family nights."
+    },
+    {
+      "source": "Pavel_Alliluyev",
+      "target": "Nadya_Alliluyeva",
+      "type": "family_connection",
+      "weight": 5,
+      "description": "Brother who brings gifts back from Berlin."
+    },
+    {
+      "source": "Alexander_Yegorov",
+      "target": "Stalin",
+      "type": "colleague_of",
+      "weight": 4,
+      "description": "Served with Stalin in the Polish campaign."
+    },
+    {
+      "source": "Alexander_Yegorov",
+      "target": "Galina_Yegorova",
+      "type": "married_to",
+      "weight": 4,
+      "description": "Military couple in the Kremlin social orbit."
+    },
+    {
+      "source": "Carolina_Til",
+      "target": "Nadya_Alliluyeva",
+      "type": "colleague_of",
+      "weight": 3,
+      "description": "Housekeeper who shares the daily rhythm of the apartment."
+    },
+    {
+      "source": "Karl_Pauker",
+      "target": "Stalin",
+      "type": "bodyguard_of",
+      "weight": 6,
+      "description": "Security chief responsible for Stalin's close protection."
+    },
+    {
+      "source": "Nikolai_Vlasik",
+      "target": "Stalin",
+      "type": "bodyguard_of",
+      "weight": 5,
+      "description": "Bodyguard shadowing Stalin through the Kremlin and dachas."
+    },
+    {
+      "source": "Karl_Pauker",
+      "target": "Nikolai_Vlasik",
+      "type": "colleague_of",
+      "weight": 4,
+      "description": "Both belong to Stalin's intimate protective apparatus."
+    },
+    {
+      "source": "Yevgenia_Alliluyeva",
+      "target": "Pavel_Alliluyev",
+      "type": "married_to",
+      "weight": 5,
+      "description": "Marriage within Nadya's immediate family."
+    },
+    {
+      "source": "Yevgenia_Alliluyeva",
+      "target": "Nadya_Alliluyeva",
+      "type": "family_connection",
+      "weight": 4,
+      "description": "Sister-in-law in the Alliluyev household."
+    }
+  ]
+}
