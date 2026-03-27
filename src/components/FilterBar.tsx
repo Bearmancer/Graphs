@@ -1,6 +1,6 @@
 import React from "react";
 import { EdgeType, EDGE_COLORS, EDGE_LABELS, GraphNode } from "../types";
-import type { ChapterMeta } from "../data/chapters";
+import type { ChapterMeta } from "../types";
 import styles from "./FilterBar.module.css";
 
 interface FilterBarProps {

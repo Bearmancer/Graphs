@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect, useMemo } from "react";
-import StalinGraph, { RenderSettings } from "../../components/StalinGraph";
+import StalinGraph, { RenderSettings } from "./StalinGraph";
 import NodeDetail from "../../components/NodeDetail";
 import FilterBar from "../../components/FilterBar";
 import SettingsWheel from "../../components/SettingsWheel";
@@ -8,8 +8,8 @@ import {
   GraphLink,
   EdgeType,
   EDGE_LABELS,
-} from "../../types";
-import chapters from "../../data/chapters";
+} from "./types";
+import chapters from "./data/chapters";
 import CharacterTable from "../../components/CharacterTable";
 
 const DEFAULT_CHAPTER_IDX = chapters.length - 1; // Ch 3 Recap by default

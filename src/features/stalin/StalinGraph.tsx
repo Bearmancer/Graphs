@@ -1,15 +1,15 @@
 import { useRef, useCallback, useState, useEffect, useMemo } from "react";
 import ForceGraph2D, { ForceGraphMethods } from "react-force-graph-2d";
 import { forceCollide } from "d3-force-3d";
-import type { GraphNode, GraphLink, GraphData, EdgeType } from "../types";
+import type { GraphNode, GraphLink, GraphData, EdgeType } from "./types";
 import {
   FACTION_COLORS,
   EDGE_COLORS,
   DASHED_EDGES,
   PARTICLE_EDGES,
   ARROW_EDGES,
-} from "../types";
-import { linkSourceId, linkTargetId } from "../utils/linkHelpers";
+} from "./types";
+import { linkSourceId, linkTargetId } from "../../utils/linkHelpers";
 
 interface PhysicsOptions {
   nodeRelSize?: number;

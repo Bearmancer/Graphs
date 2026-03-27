@@ -1,4 +1,4 @@
-import type { GraphLink, GraphNode } from "../types";
+import type { GraphLink, GraphNode } from "../graph-types";
 
 /** Extract the source node ID from a link (handles both string and resolved-object form). */
 export function linkSourceId(link: GraphLink): string {
