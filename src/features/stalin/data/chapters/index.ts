@@ -6,8 +6,6 @@ import ch1Data from "./ch1.json";
 import ch2Data from "./ch2.json";
 import fullData from "../graph.json";
 
-export type { ChapterMeta } from "../../../../graph-types";
-
 const chapters: ChapterMeta[] = [
   {
     id: "prologue",
