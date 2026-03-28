@@ -9,10 +9,10 @@ import {
   EdgeType,
   EDGE_LABELS,
 } from "./types";
-import chapters from "./data/chapters";
+import chapters, { DEFAULT_CHAPTER_ID } from "./data/chapters";
 import CharacterTable from "../../components/CharacterTable";
 
-const DEFAULT_CHAPTER_IDX = chapters.length - 1; // Ch 3 Recap by default
+const DEFAULT_CHAPTER_IDX = Math.max(0, chapters.findIndex((c) => c.id === DEFAULT_CHAPTER_ID)); // Ch 3 Recap by default
 const ALL_EDGE_TYPES = new Set(Object.keys(EDGE_LABELS) as EdgeType[]);
 
 type AllSettings = {
