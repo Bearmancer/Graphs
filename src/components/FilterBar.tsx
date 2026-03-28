@@ -38,19 +38,19 @@ const FilterBar: React.FC<FilterBarProps> = ({
 }) => {
   return (
     <div className={styles.bar} role="toolbar" aria-label="Graph controls">
-      <div className={styles.chapterSelector} role="group" aria-label="Chapter">
+      <select
+        className={styles.chapterSelect}
+        value={activeChapterIdx}
+        onChange={(e) => onChapterChange(Number(e.target.value))}
+        aria-label="Chapter"
+        title={chapters[activeChapterIdx]?.description}
+      >
         {chapters.map((ch, idx) => (
-          <button
-            key={ch.id}
-            className={styles.chapterBtn}
-            data-active={idx === activeChapterIdx}
-            onClick={() => onChapterChange(idx)}
-            title={ch.description}
-          >
+          <option key={ch.id} value={idx}>
             {ch.label}
-          </button>
+          </option>
         ))}
-      </div>
+      </select>
 
       <div
         className={styles.viewModes}

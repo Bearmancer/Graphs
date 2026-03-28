@@ -16,36 +16,39 @@
     backdrop-filter: blur(4px);
 }
 
-.chapterSelector {
-    display: inline-flex;
-    gap: 0.25rem;
+.chapterSelect {
     flex-shrink: 0;
-}
-
-.chapterBtn {
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    background: rgba(255, 255, 255, 0.02);
-    color: #777;
-    border-radius: 999px;
+    border: 1px solid rgba(255, 215, 0, 0.4);
+    background: rgba(255, 215, 0, 0.06);
+    color: #FFD700;
+    border-radius: 8px;
     font-family: var(--font-ui);
     font-size: var(--font-filter-pill);
     font-weight: 600;
     letter-spacing: 0.04em;
-    padding: 0.22rem 0.55rem;
+    padding: 0.24rem 1.8rem 0.24rem 0.6rem;
     cursor: pointer;
-    transition: background 0.12s, color 0.12s;
-    white-space: nowrap;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23FFD700' opacity='0.7'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.55rem center;
+    transition: border-color 0.12s, background-color 0.12s;
 }
 
-.chapterBtn[data-active="true"] {
-    color: #FFD700;
-    border-color: rgba(255, 215, 0, 0.4);
-    background: rgba(255, 215, 0, 0.12);
+.chapterSelect:hover {
+    border-color: rgba(255, 215, 0, 0.65);
+    background-color: rgba(255, 215, 0, 0.12);
 }
 
-.chapterBtn:hover:not([data-active="true"]) {
-    color: #bbb;
-    background: rgba(255, 255, 255, 0.06);
+.chapterSelect:focus-visible {
+    outline: 2px solid rgba(255, 215, 0, 0.5);
+    outline-offset: 2px;
+}
+
+.chapterSelect option {
+    background: #111;
+    color: #e8e8e8;
+    font-weight: 500;
 }
 
 .viewModes {
