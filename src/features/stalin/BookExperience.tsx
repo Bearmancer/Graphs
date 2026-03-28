@@ -82,7 +82,7 @@ function readRootSettings(): AllSettings {
 
 const STORAGE_KEY = "graph-ui-settings";
 
-export default function BookExperience() {
+export default function BookExperience({ onBack }: { onBack: () => void }) {
   const [chapterIdx, setChapterIdx] = useState(DEFAULT_CHAPTER_IDX);
   const graphData = chapters[chapterIdx].data;
   const allNodes = graphData.nodes as GraphNode[];
@@ -224,6 +224,7 @@ export default function BookExperience() {
         chapters={chapters}
         activeChapterIdx={chapterIdx}
         onChapterChange={setChapterIdx}
+        onBack={onBack}
       />
       <SettingsWheel
         settings={settings}

@@ -16,6 +16,32 @@
     backdrop-filter: blur(4px);
 }
 
+.backButton {
+    flex-shrink: 0;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.04);
+    color: #aaa;
+    border-radius: 8px;
+    font-family: var(--font-ui);
+    font-size: var(--font-filter-pill);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    padding: 0.24rem 0.65rem;
+    cursor: pointer;
+    transition: border-color 0.12s, background-color 0.12s, color 0.12s;
+}
+
+.backButton:hover {
+    border-color: rgba(255, 255, 255, 0.35);
+    background-color: rgba(255, 255, 255, 0.09);
+    color: #f0f0f0;
+}
+
+.backButton:focus-visible {
+    outline: 2px solid rgba(255, 255, 255, 0.3);
+    outline-offset: 2px;
+}
+
 .chapterSelect {
     flex-shrink: 0;
     border: 1px solid rgba(255, 215, 0, 0.4);

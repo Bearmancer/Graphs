@@ -17,6 +17,7 @@ interface FilterBarProps {
   chapters: ChapterMeta[];
   activeChapterIdx: number;
   onChapterChange: (idx: number) => void;
+  onBack: () => void;
 }
 
 const ALL_TYPES = Object.keys(EDGE_LABELS) as EdgeType[];
@@ -35,9 +36,17 @@ const FilterBar: React.FC<FilterBarProps> = ({
   chapters,
   activeChapterIdx,
   onChapterChange,
+  onBack,
 }) => {
   return (
     <div className={styles.bar} role="toolbar" aria-label="Graph controls">
+      <button
+        className={styles.backButton}
+        onClick={onBack}
+        aria-label="Back to home"
+      >
+        ← Home
+      </button>
       <select
         className={styles.chapterSelect}
         value={activeChapterIdx}
