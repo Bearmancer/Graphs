@@ -24,7 +24,7 @@
 
 .title {
   font-family: var(--font-serif);
-  font-size: 1.35rem;
+  font-size: var(--font-table-title);
   font-weight: 600;
   color: #f4f1df;
 }
@@ -32,7 +32,7 @@
 .subtitle {
   margin-top: 0.25rem;
   color: rgba(240, 240, 240, 0.72);
-  font-size: 0.86rem;
+  font-size: var(--font-table-subtitle);
   max-width: 40rem;
 }
 
@@ -43,7 +43,7 @@
   padding: 0.72rem 0.95rem;
   background: rgba(255, 255, 255, 0.04);
   color: #efefef;
-  font-size: 0.88rem;
+  font-size: var(--font-table-search);
 }
 
 .tableWrap {
@@ -64,7 +64,7 @@
   z-index: 1;
   padding: 0.82rem 0.85rem;
   text-align: left;
-  font-size: 0.72rem;
+  font-size: var(--font-table-header);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.6);
@@ -99,7 +99,7 @@
   text-align: left;
   color: #fff4cf;
   font-family: var(--font-serif);
-  font-size: 1rem;
+  font-size: var(--font-table-name);
   font-weight: 600;
   cursor: pointer;
 }
@@ -117,7 +117,7 @@
   border: 1px solid;
   border-radius: 999px;
   padding: 0.2rem 0.55rem;
-  font-size: 0.69rem;
+  font-size: var(--font-table-badge);
   font-weight: 700;
   letter-spacing: 0.03em;
   white-space: nowrap;
@@ -125,7 +125,7 @@
 
 .secondary {
   color: rgba(255, 255, 255, 0.55);
-  font-size: 0.76rem;
+  font-size: var(--font-table-secondary);
 }
 
 .role {
@@ -137,14 +137,14 @@
 .centrality {
   margin-top: 0.35rem;
   color: rgba(255, 255, 255, 0.55);
-  font-size: 0.76rem;
+  font-size: var(--font-table-secondary);
 }
 
 .textCell {
   margin-top: 0.45rem;
   color: rgba(255, 255, 255, 0.78);
   line-height: 1.5;
-  font-size: 0.84rem;
+  font-size: var(--font-table-body);
 }
 
 .numeric {

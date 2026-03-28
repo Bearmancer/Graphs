@@ -16,6 +16,67 @@
     backdrop-filter: blur(4px);
 }
 
+.backButton {
+    flex-shrink: 0;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.04);
+    color: #aaa;
+    border-radius: 8px;
+    font-family: var(--font-ui);
+    font-size: var(--font-filter-pill);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    padding: 0.24rem 0.65rem;
+    cursor: pointer;
+    transition: border-color 0.12s, background-color 0.12s, color 0.12s;
+}
+
+.backButton:hover {
+    border-color: rgba(255, 255, 255, 0.35);
+    background-color: rgba(255, 255, 255, 0.09);
+    color: #f0f0f0;
+}
+
+.backButton:focus-visible {
+    outline: 2px solid rgba(255, 255, 255, 0.3);
+    outline-offset: 2px;
+}
+
+.chapterSelect {
+    flex-shrink: 0;
+    border: 1px solid rgba(255, 215, 0, 0.4);
+    background: rgba(255, 215, 0, 0.06);
+    color: #FFD700;
+    border-radius: 8px;
+    font-family: var(--font-ui);
+    font-size: var(--font-filter-pill);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    padding: 0.24rem 1.8rem 0.24rem 0.6rem;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23FFD700' opacity='0.7'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.55rem center;
+    transition: border-color 0.12s, background-color 0.12s;
+}
+
+.chapterSelect:hover {
+    border-color: rgba(255, 215, 0, 0.65);
+    background-color: rgba(255, 215, 0, 0.12);
+}
+
+.chapterSelect:focus-visible {
+    outline: 2px solid rgba(255, 215, 0, 0.5);
+    outline-offset: 2px;
+}
+
+.chapterSelect option {
+    background: #111;
+    color: #e8e8e8;
+    font-weight: 500;
+}
+
 .viewModes {
     display: inline-flex;
     gap: 0.35rem;
@@ -29,7 +90,7 @@
     color: #9a9a9a;
     border-radius: 999px;
     font-family: var(--font-ui);
-    font-size: 0.62rem;
+    font-size: var(--font-filter-pill);
     font-weight: 700;
     letter-spacing: 0.05em;
     text-transform: uppercase;
@@ -59,7 +120,7 @@
 
 .label {
     font-family: var(--font-ui);
-    font-size: 0.65rem;
+    font-size: var(--font-filter-label);
     font-weight: 700;
     letter-spacing: 0.06em;
     text-transform: uppercase;
@@ -83,7 +144,7 @@
 .pill {
     flex-shrink: 0;
     font-family: var(--font-ui);
-    font-size: 0.62rem;
+    font-size: var(--font-filter-pill);
     font-weight: 600;
     letter-spacing: 0.03em;
     padding: 0.2rem 0.55rem;
@@ -120,7 +181,7 @@
     border-radius: 10px;
     padding: 0.42rem 0.58rem;
     font-family: var(--font-ui);
-    font-size: 0.74rem;
+    font-size: var(--font-search-input);
 }
 
 .searchInput::placeholder {
@@ -162,7 +223,7 @@
     display: block;
     color: #efefef;
     font-family: var(--font-ui);
-    font-size: 0.76rem;
+    font-size: var(--font-search-name);
     font-weight: 600;
 }
 
@@ -171,14 +232,14 @@
     margin-top: 0.15rem;
     color: #969696;
     font-family: var(--font-ui);
-    font-size: 0.67rem;
+    font-size: var(--font-search-meta);
 }
 
 .searchEmpty,
 .modeHint {
     color: #888;
     font-family: var(--font-ui);
-    font-size: 0.72rem;
+    font-size: var(--font-hint);
 }
 
 .searchEmpty {

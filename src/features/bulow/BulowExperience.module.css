@@ -1,0 +1,66 @@
+.page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100dvh;
+    padding: 2rem 1rem;
+    position: relative;
+}
+
+.backButton {
+    position: fixed;
+    top: 0.75rem;
+    left: 0.75rem;
+    border: 1px solid rgba(207, 181, 59, 0.4);
+    background: rgba(207, 181, 59, 0.06);
+    color: #CFB53B;
+    border-radius: 8px;
+    font-family: var(--font-ui);
+    font-size: var(--font-filter-pill);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    padding: 0.28rem 0.7rem;
+    cursor: pointer;
+    transition: border-color 0.12s, background-color 0.12s;
+    z-index: 50;
+}
+
+.backButton:hover {
+    border-color: rgba(207, 181, 59, 0.65);
+    background-color: rgba(207, 181, 59, 0.12);
+}
+
+.backButton:focus-visible {
+    outline: 2px solid rgba(207, 181, 59, 0.5);
+    outline-offset: 2px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+    max-width: 420px;
+}
+
+.icon {
+    font-size: 3rem;
+    line-height: 1;
+}
+
+.title {
+    font-family: var(--font-ui);
+    font-size: var(--font-table-title);
+    font-weight: 700;
+    color: #f0f0f0;
+    letter-spacing: 0.02em;
+}
+
+.body {
+    font-family: var(--font-ui);
+    font-size: var(--font-table-body);
+    color: #999;
+    line-height: 1.6;
+}

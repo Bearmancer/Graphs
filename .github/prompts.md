@@ -94,3 +94,83 @@ Turn the source material into a rooted kinship tree.
 
 - Do not store repo-specific planning artifacts in global user folders.
 - Prefer updating the consolidated `.github` files instead of creating new hidden orchestration folders.
+
+## Adding a new graph variant
+
+Use this when creating a new book graph (either network or hierarchy type):
+
+```text
+Create a new graph variant for the book "[BOOK TITLE]" by [AUTHOR].
+
+Steps:
+1. Determine the graph type:
+   - Network (force-directed, "Stalin" type): Use when the subject is a web of
+     overlapping, multi-typed relationships (political courts, social networks,
+     alliances).
+   - Hierarchy (top-to-bottom tree, "Bülow" type): Use when the subject is
+     fundamentally lineage, descent, chain of command, or tree-shaped dependency.
+
+2. Create the variant directory: `src/features/<variant-id>/`
+
+3. Define types in `src/features/<variant-id>/types.ts`:
+   - Extend `GraphNode` from `src/graph-types` with variant-specific group field
+   - Extend `GraphLink` from `src/graph-types` with variant-specific edge types
+   - Define colour maps for all groups and edge types
+   - Define label maps for human-readable display
+   - Define edge style sets (dashed, particle, arrow)
+
+4. Create the variant config in `src/features/<variant-id>/variant.ts`:
+   - Instantiate `GraphVariant` with all type parameters
+   - Wire up all colour/label/style maps
+   - Reference the chapters array
+
+5. Create chapter data in `src/features/<variant-id>/data/chapters/`:
+   - Each chapter JSON must be cumulative (includes all previous characters)
+   - Strip `laterRelevance` and `laterNote` from per-chapter files
+   - Dead/removed characters should be omitted from later chapters
+   - Create an `index.ts` that exports the chapters array
+
+6. Create the renderer component:
+   - Network type: Copy pattern from `src/features/stalin/StalinGraph.tsx`
+   - Hierarchy type: Create a new tree-based renderer (not yet implemented)
+
+7. Create the page orchestrator:
+   - Copy pattern from `src/features/stalin/BookExperience.tsx`
+   - Update imports to use local variant types and data
+
+8. Register in `src/App.tsx` (or a future router).
+
+Validation:
+- Run `npm run build` to verify TypeScript and Vite build pass
+- Confirm each chapter JSON loads and renders
+- Confirm chapter-to-chapter progression adds characters cumulatively
+```
+
+## Generic chapter-by-chapter validation rules
+
+```text
+When validating iterative chapter graphs for any book variant:
+
+1. Cumulative integrity:
+   - Chapter N must contain ALL nodes from chapter N-1 (unless a character
+     dies/is removed — document removals explicitly).
+   - Chapter N must contain ALL links from chapter N-1 that still involve
+     living characters.
+
+2. No spoilers:
+   - `laterRelevance` and `laterNote` fields must NOT appear in per-chapter
+     files. They belong only in the full/recap dataset.
+   - Bios must be time-bounded: describe only what is known up to the current
+     chapter boundary.
+
+3. Consistency:
+   - Node IDs must be stable across chapters (same person = same ID).
+   - Link types and weights may be revised chapter-to-chapter if the
+     relationship changes, but the revision should be documented.
+   - Every node must have: id, label, title, group/faction, centrality, bio.
+   - Every link must have: source, target, type, weight, description.
+
+4. Build check:
+   - After adding or modifying chapter data, run `npm run build` to confirm
+     the TypeScript compiler accepts the data shape.
+```

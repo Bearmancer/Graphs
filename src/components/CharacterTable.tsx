@@ -6,6 +6,7 @@ import {
   LATER_RELEVANCE_COLORS,
   LATER_RELEVANCE_LABELS,
 } from "../types";
+import { linkSourceId, linkTargetId } from "../utils/linkHelpers";
 import styles from "./CharacterTable.module.css";
 
 interface Props {
@@ -28,14 +29,8 @@ export default function CharacterTable({
   const connectionCounts = useMemo(() => {
     const counts = new Map<string, number>();
     for (const link of links) {
-      const src =
-        typeof link.source === "object"
-          ? (link.source as GraphNode).id
-          : link.source;
-      const tgt =
-        typeof link.target === "object"
-          ? (link.target as GraphNode).id
-          : link.target;
+      const src = linkSourceId(link);
+      const tgt = linkTargetId(link);
       counts.set(src, (counts.get(src) ?? 0) + 1);
       counts.set(tgt, (counts.get(tgt) ?? 0) + 1);
     }

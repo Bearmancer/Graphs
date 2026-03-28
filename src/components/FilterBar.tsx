@@ -1,5 +1,6 @@
 import React from "react";
 import { EdgeType, EDGE_COLORS, EDGE_LABELS, GraphNode } from "../types";
+import type { ChapterMeta } from "../types";
 import styles from "./FilterBar.module.css";
 
 interface FilterBarProps {
@@ -13,6 +14,10 @@ interface FilterBarProps {
   onSearchQueryChange: (value: string) => void;
   searchResults: GraphNode[];
   onSelectNode: (id: string) => void;
+  chapters: ChapterMeta[];
+  activeChapterIdx: number;
+  onChapterChange: (idx: number) => void;
+  onBack: () => void;
 }
 
 const ALL_TYPES = Object.keys(EDGE_LABELS) as EdgeType[];
@@ -28,13 +33,38 @@ const FilterBar: React.FC<FilterBarProps> = ({
   onSearchQueryChange,
   searchResults,
   onSelectNode,
+  chapters,
+  activeChapterIdx,
+  onChapterChange,
+  onBack,
 }) => {
   return (
     <div className={styles.bar} role="toolbar" aria-label="Graph controls">
+      <button
+        className={styles.backButton}
+        onClick={onBack}
+        aria-label="Back to home"
+      >
+        ← Home
+      </button>
+      <select
+        className={styles.chapterSelect}
+        value={activeChapterIdx}
+        onChange={(e) => onChapterChange(Number(e.target.value))}
+        aria-label="Chapter"
+        title={chapters[activeChapterIdx]?.description}
+      >
+        {chapters.map((ch, idx) => (
+          <option key={ch.id} value={idx}>
+            {ch.label}
+          </option>
+        ))}
+      </select>
+
       <div
         className={styles.viewModes}
         role="tablist"
-        aria-label="Stalin views"
+        aria-label="View modes"
       >
         <button
           id="graph-tab"
