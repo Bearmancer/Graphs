@@ -29,35 +29,51 @@ body {
 
 :root {
   /* Font families */
-  --font-ui: 'Inter Variable', Inter, sans-serif;
+  --font-ui: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   --font-serif: 'Spectral', serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', 'Courier New', monospace;
 
-  /* Sizes (px) — adjustable via settings UI */
+  /*
+   * Master base size (px) — the single scaling knob.
+   * html { font-size } is set to this value, so all rem sizes scale with it.
+   */
   --font-base-size: 16px;
-  --font-title-size: 19.2px; /* 1.2rem */
-  --font-nickname-size: 11.5px; /* 0.72rem */
-  --font-small-size: 12.48px; /* 0.78rem */
-  --font-bio-size: 14px; /* 0.875rem */
-  --node-label-base-size: 12; /* screen px for canvas labels */
 
-  /* Derived sidebar / filter sizes using CSS calc for consistency */
-  --font-filter-pill: 0.62rem;
-  --font-filter-label: 0.65rem;
-  --font-search-input: 0.74rem;
-  --font-search-name: 0.76rem;
-  --font-search-meta: 0.67rem;
-  --font-hint: 0.72rem;
-  --font-table-header: 0.72rem;
-  --font-table-badge: 0.69rem;
-  --font-table-secondary: 0.76rem;
-  --font-table-body: 0.84rem;
-  --font-table-search: 0.88rem;
+  /*
+   * Panel sizes (rem — scale with base).
+   * Used in NodeDetail side panel: headers, body, badges, metrics.
+   */
+  --font-title-size: 1.25rem;
+  --font-nickname-size: 0.76rem;
+  --font-small-size: 0.82rem;
+  --font-bio-size: 0.92rem;
+  --font-badge-size: 0.66rem;
+  --font-meta-size: 0.74rem;
+
+  /* Canvas node labels — screen px, not rem (used by the force-graph renderer) */
+  --node-label-base-size: 12;
+
+  /* Filter bar / toolbar */
+  --font-filter-pill: 0.65rem;
+  --font-filter-label: 0.68rem;
+  --font-search-input: 0.78rem;
+  --font-search-name: 0.8rem;
+  --font-search-meta: 0.7rem;
+  --font-hint: 0.75rem;
+
+  /* Character table */
+  --font-table-header: 0.75rem;
+  --font-table-badge: 0.72rem;
+  --font-table-secondary: 0.78rem;
+  --font-table-body: 0.88rem;
+  --font-table-search: 0.9rem;
   --font-table-title: 1.35rem;
-  --font-table-subtitle: 0.86rem;
+  --font-table-subtitle: 0.88rem;
   --font-table-name: 1rem;
-  --font-settings-label: 0.78rem;
-  --font-settings-hint: 0.75rem;
+
+  /* Settings popover */
+  --font-settings-label: 0.8rem;
+  --font-settings-hint: 0.78rem;
 
   /* Side panel width */
   --side-panel-width: 340px;
