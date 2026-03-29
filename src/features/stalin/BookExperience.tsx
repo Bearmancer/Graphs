@@ -11,8 +11,9 @@ import {
 } from "./types";
 import chapters, { DEFAULT_CHAPTER_ID } from "./data/chapters";
 import CharacterTable from "../../components/CharacterTable";
+import { DEFAULT_BASE_SIZE_PX } from "../../fontSizes";
 
-const DEFAULT_CHAPTER_IDX = Math.max(0, chapters.findIndex((c) => c.id === DEFAULT_CHAPTER_ID)); // Ch 3 Recap by default
+const DEFAULT_CHAPTER_IDX = Math.max(0, chapters.findIndex((c) => c.id === DEFAULT_CHAPTER_ID));
 const ALL_EDGE_TYPES = new Set(Object.keys(EDGE_LABELS) as EdgeType[]);
 
 type AllSettings = {
@@ -20,23 +21,15 @@ type AllSettings = {
   fontSerif: string;
   fontMono: string;
   fontBaseSize: number;
-  fontTitleSize: number;
-  fontNicknameSize: number;
-  fontSmallSize: number;
-  fontBioSize: number;
   nodeLabelBase: number;
 };
 
 const DEFAULTS: AllSettings = {
-  fontUI: "'Inter Variable', Inter, sans-serif",
+  fontUI: "'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
   fontSerif: "'Spectral', serif",
   fontMono:
     "ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', 'Courier New', monospace",
-  fontBaseSize: 16,
-  fontTitleSize: 19.2,
-  fontNicknameSize: 11.5,
-  fontSmallSize: 12.48,
-  fontBioSize: 14,
+  fontBaseSize: DEFAULT_BASE_SIZE_PX,
   nodeLabelBase: 12,
 };
 
@@ -48,19 +41,6 @@ function readRootSettings(): AllSettings {
     const fontBaseSize =
       parseFloat(read("--font-base-size", `${DEFAULTS.fontBaseSize}px`)) ||
       DEFAULTS.fontBaseSize;
-    const fontTitleSize =
-      parseFloat(read("--font-title-size", `${DEFAULTS.fontTitleSize}px`)) ||
-      DEFAULTS.fontTitleSize;
-    const fontNicknameSize =
-      parseFloat(
-        read("--font-nickname-size", `${DEFAULTS.fontNicknameSize}px`),
-      ) || DEFAULTS.fontNicknameSize;
-    const fontSmallSize =
-      parseFloat(read("--font-small-size", `${DEFAULTS.fontSmallSize}px`)) ||
-      DEFAULTS.fontSmallSize;
-    const fontBioSize =
-      parseFloat(read("--font-bio-size", `${DEFAULTS.fontBioSize}px`)) ||
-      DEFAULTS.fontBioSize;
     const nodeLabelBase =
       parseFloat(read("--node-label-base-size", `${DEFAULTS.nodeLabelBase}`)) ||
       DEFAULTS.nodeLabelBase;
@@ -69,10 +49,6 @@ function readRootSettings(): AllSettings {
       fontSerif: read("--font-serif", DEFAULTS.fontSerif),
       fontMono: read("--font-mono", DEFAULTS.fontMono),
       fontBaseSize,
-      fontTitleSize,
-      fontNicknameSize,
-      fontSmallSize,
-      fontBioSize,
       nodeLabelBase,
     };
   } catch {
@@ -120,13 +96,6 @@ export default function BookExperience({ onBack }: { onBack: () => void }) {
     root.style.setProperty("--font-serif", settings.fontSerif);
     root.style.setProperty("--font-mono", settings.fontMono);
     root.style.setProperty("--font-base-size", `${settings.fontBaseSize}px`);
-    root.style.setProperty("--font-title-size", `${settings.fontTitleSize}px`);
-    root.style.setProperty(
-      "--font-nickname-size",
-      `${settings.fontNicknameSize}px`,
-    );
-    root.style.setProperty("--font-small-size", `${settings.fontSmallSize}px`);
-    root.style.setProperty("--font-bio-size", `${settings.fontBioSize}px`);
     root.style.setProperty(
       "--node-label-base-size",
       `${settings.nodeLabelBase}`,
@@ -207,6 +176,16 @@ export default function BookExperience({ onBack }: { onBack: () => void }) {
     [allNodes],
   );
 
+  /** Table-view click: open the detail panel without changing the search filter. */
+  const handleTableNodeSelect = useCallback(
+    (id: string) => {
+      const found = allNodes.find((node) => node.id === id);
+      if (!found) return;
+      setSelectedNode((prev) => (prev?.id === found.id ? null : found));
+    },
+    [allNodes],
+  );
+
   return (
     <>
       <FilterBar
@@ -248,7 +227,7 @@ export default function BookExperience({ onBack }: { onBack: () => void }) {
             links={graphData.links as GraphLink[]}
             searchQuery={searchQuery}
             onSearchQueryChange={setSearchQuery}
-            onSelectNode={handleSelectNodeFromSearch}
+            onSelectNode={handleTableNodeSelect}
             selectedNodeId={selectedNode?.id ?? null}
           />
         </div>

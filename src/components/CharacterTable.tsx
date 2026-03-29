@@ -98,7 +98,10 @@ export default function CharacterTable({
                       <button
                         type="button"
                         className={styles.nameButton}
-                        onClick={() => onSelectNode(node.id)}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          onSelectNode(node.id);
+                        }}
                       >
                         {node.label}
                       </button>

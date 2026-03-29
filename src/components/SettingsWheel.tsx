@@ -133,7 +133,9 @@ export default function SettingsWheel({ settings, onChange, onReset }: Props) {
           </div>
 
           <div className={styles.section}>
-            <div className={styles.label}>Base font size (px)</div>
+            <div className={styles.label}>
+              Base font size (px) — scales all text
+            </div>
             <div className={styles.rangeRow}>
               <input
                 type="range"
@@ -154,81 +156,6 @@ export default function SettingsWheel({ settings, onChange, onReset }: Props) {
                   update({
                     fontBaseSize: Math.round(Number(e.target.value) || 10),
                   })
-                }
-              />
-            </div>
-          </div>
-
-          <div className={styles.section}>
-            <div className={styles.label}>Title size (px)</div>
-            <div className={styles.rangeRow}>
-              <input
-                type="range"
-                min={12}
-                max={40}
-                value={settings.fontTitleSize}
-                onChange={(e) =>
-                  update({ fontTitleSize: Number(e.target.value) })
-                }
-              />
-              <input
-                className={`${styles.input} ${styles.small}`}
-                type="number"
-                min={10}
-                max={80}
-                value={settings.fontTitleSize}
-                onChange={(e) =>
-                  update({ fontTitleSize: Number(e.target.value) || 12 })
-                }
-              />
-            </div>
-          </div>
-
-          <div className={styles.section}>
-            <div className={styles.label}>Nickname size (px)</div>
-            <div className={styles.rangeRow}>
-              <input
-                type="range"
-                min={8}
-                max={24}
-                value={settings.fontNicknameSize}
-                onChange={(e) =>
-                  update({ fontNicknameSize: Number(e.target.value) })
-                }
-              />
-              <input
-                className={`${styles.input} ${styles.small}`}
-                type="number"
-                min={8}
-                max={32}
-                value={settings.fontNicknameSize}
-                onChange={(e) =>
-                  update({ fontNicknameSize: Number(e.target.value) || 8 })
-                }
-              />
-            </div>
-          </div>
-
-          <div className={styles.section}>
-            <div className={styles.label}>Bio size (px)</div>
-            <div className={styles.rangeRow}>
-              <input
-                type="range"
-                min={10}
-                max={28}
-                value={settings.fontBioSize}
-                onChange={(e) =>
-                  update({ fontBioSize: Number(e.target.value) })
-                }
-              />
-              <input
-                className={`${styles.input} ${styles.small}`}
-                type="number"
-                min={10}
-                max={48}
-                value={settings.fontBioSize}
-                onChange={(e) =>
-                  update({ fontBioSize: Number(e.target.value) || 10 })
                 }
               />
             </div>

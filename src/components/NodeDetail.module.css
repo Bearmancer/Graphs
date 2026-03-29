@@ -107,7 +107,7 @@
 .factionBadge {
   display: inline-block;
   font-family: var(--font-ui);
-  font-size: calc(var(--font-nickname-size) - 2px);
+  font-size: var(--font-badge-size);
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -122,7 +122,7 @@
 
 .sectionLabel {
   font-family: var(--font-ui);
-  font-size: calc(var(--font-nickname-size));
+  font-size: var(--font-nickname-size);
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -156,7 +156,7 @@
 .metricLabel {
   display: block;
   font-family: var(--font-ui);
-  font-size: calc(var(--font-nickname-size) - 2px);
+  font-size: var(--font-badge-size);
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: #777;
@@ -190,13 +190,13 @@
 
 .countLabel {
   font-family: var(--font-ui);
-  font-size: calc(var(--font-small-size) - 1px);
+  font-size: var(--font-meta-size);
   color: #aaa;
 }
 
 .countValue {
   font-family: var(--font-mono);
-  font-size: calc(var(--font-small-size) - 1px);
+  font-size: var(--font-meta-size);
   color: #ddd;
 }
 
@@ -228,7 +228,7 @@
   display: block;
   margin-top: 0.15rem;
   font-family: var(--font-ui);
-  font-size: calc(var(--font-small-size) - 2px);
+  font-size: var(--font-meta-size);
   color: #909090;
 }
 
@@ -264,7 +264,7 @@
 
 .relTypeBadge {
   font-family: var(--font-ui);
-  font-size: calc(var(--font-nickname-size) - 2px);
+  font-size: var(--font-badge-size);
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -285,9 +285,9 @@
 
 .relDesc {
   font-family: var(--font-serif);
-  font-size: calc(var(--font-bio-size) - 2px);
+  font-size: var(--font-small-size);
   color: #888;
-  line-height: 1.45;
+  line-height: 1.5;
 }
 
 .relCharMeta {
@@ -300,7 +300,7 @@
 .relFactionBadge {
   display: inline-block;
   font-family: var(--font-ui);
-  font-size: calc(var(--font-nickname-size) - 3px);
+  font-size: var(--font-badge-size);
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -312,7 +312,7 @@
 
 .relCharTitle {
   font-family: var(--font-ui);
-  font-size: calc(var(--font-small-size) - 1px);
+  font-size: var(--font-meta-size);
   color: #aaa;
   font-style: italic;
   overflow: hidden;
@@ -322,7 +322,7 @@
 
 .relStrength {
   font-family: var(--font-mono);
-  font-size: calc(var(--font-small-size) - 2px);
+  font-size: var(--font-meta-size);
   color: #666;
   margin-top: 0.2rem;
 }

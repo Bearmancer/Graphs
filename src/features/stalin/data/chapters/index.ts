@@ -117,6 +117,6 @@ const chapters: ChapterMeta[] = [
   },
 ];
 
-export const DEFAULT_CHAPTER_ID = "ch3-recap";
+export const DEFAULT_CHAPTER_ID = "prologue";
 
 export default chapters;
