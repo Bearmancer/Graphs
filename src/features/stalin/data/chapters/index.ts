@@ -40,7 +40,7 @@ const chapters: ChapterMeta[] = [
   {
     id: "ch3-recap",
     label: "Ch 3 Recap ★",
-    description: "Full cast through Ch 2 with later-relevance annotations – default view",
+    description: "Full cast through Ch 2 — default view",
     data: fullData as unknown as GraphData,
   },
   {

@@ -188,7 +188,6 @@ export default function BookExperience({ onBack }: { onBack: () => void }) {
           node.label,
           node.title,
           node.bio,
-          node.laterNote,
           ...(node.nicknames ?? []),
         ]
           .join(" ")

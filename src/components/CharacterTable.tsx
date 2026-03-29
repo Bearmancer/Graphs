@@ -3,8 +3,6 @@ import type { GraphLink, GraphNode } from "../types";
 import {
   FACTION_COLORS,
   FACTION_LABELS,
-  LATER_RELEVANCE_COLORS,
-  LATER_RELEVANCE_LABELS,
 } from "../types";
 import { linkSourceId, linkTargetId } from "../utils/linkHelpers";
 import styles from "./CharacterTable.module.css";
@@ -48,8 +46,6 @@ export default function CharacterTable({
         node.label,
         node.title,
         node.bio,
-        node.laterNote,
-        node.laterRelevance,
         ...(node.nicknames ?? []),
       ]
         .join(" ")
@@ -64,8 +60,7 @@ export default function CharacterTable({
         <div>
           <h2 className={styles.title}>Character Table</h2>
           <p className={styles.subtitle}>
-            Search the cast, inspect their current chapter role, and see whether
-            each figure stays important later in the book.
+            Search the cast and inspect each figure's role and connections in this chapter.
           </p>
         </div>
         <input
@@ -73,7 +68,7 @@ export default function CharacterTable({
           type="search"
           value={searchQuery}
           onChange={(event) => onSearchQueryChange(event.target.value)}
-          placeholder="Search by name, role, bio, or later relevance"
+          placeholder="Search by name, role, or bio"
           aria-label="Search character table"
         />
       </div>
@@ -85,16 +80,12 @@ export default function CharacterTable({
               <th>Character</th>
               <th>Current Role</th>
               <th>Chapter Context</th>
-              <th>Later In Book</th>
               <th className={styles.numeric}>Links</th>
             </tr>
           </thead>
           <tbody>
             {rows.map((node) => {
               const factionColor = FACTION_COLORS[node.faction] ?? "#888";
-              const laterColor = node.laterRelevance
-                ? LATER_RELEVANCE_COLORS[node.laterRelevance]
-                : "#888";
               return (
                 <tr
                   key={node.id}
@@ -137,23 +128,6 @@ export default function CharacterTable({
                     </div>
                   </td>
                   <td className={styles.textCell}>{node.bio}</td>
-                  <td>
-                    {node.laterRelevance ? (
-                      <span
-                        className={styles.badge}
-                        style={{
-                          background: `${laterColor}22`,
-                          borderColor: `${laterColor}55`,
-                          color: laterColor,
-                        }}
-                      >
-                        {LATER_RELEVANCE_LABELS[node.laterRelevance]}
-                      </span>
-                    ) : null}
-                    <div className={styles.textCell}>
-                      {node.laterNote ?? "No later note."}
-                    </div>
-                  </td>
                   <td className={styles.numeric}>
                     {connectionCounts.get(node.id) ?? 0}
                   </td>

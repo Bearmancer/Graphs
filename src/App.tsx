@@ -12,7 +12,7 @@ const TITLES: Record<Screen, string> = {
 };
 
 export default function App() {
-  const [screen, setScreen] = useState<Screen>("home");
+  const [screen, setScreen] = useState<Screen>("stalin");
 
   useEffect(() => {
     document.title = TITLES[screen];
