@@ -306,7 +306,7 @@
     },
     {
       "id": "Olga_Alliluyeva",
-      "label": "Olga Alliluyeva (n\u00e9e Fedorenko)",
+      "label": "Olga Alliluyeva (née Fedorenko)",
       "title": "Nadya's mother",
       "faction": "family",
       "centrality": 4,
@@ -470,7 +470,7 @@
       "title": "Gorky regional boss and Fourth Secretary",
       "faction": "politburo_core",
       "centrality": 5,
-      "bio": "Cultivated party boss promoted to Fourth Secretary after Kirov's murder. Stalin grooms him as an ideological enforcer and key lieutenant, and he later becomes the cultural tsarist of the post-war years."
+      "bio": "Cultivated party boss promoted to Fourth Secretary after Kirov's murder. Stalin grooms him as an ideological enforcer and key lieutenant."
     },
     {
       "id": "Yezhov",
@@ -482,7 +482,7 @@
         "The Dwarf",
         "Blackberry"
       ],
-      "bio": "Small and fanatically loyal, Yezhov rises rapidly through the party apparatus to oversee the investigation of Kirov's murder. He becomes the instrument of mass terror, lending his name to the Yezhovshchina."
+      "bio": "Small and fanatically loyal, Yezhov rises rapidly through the party apparatus. Stalin tasks him with investigating Kirov's assassination, accelerating his climb from Central Committee secretary toward the inner ring of the security apparatus."
     }
   ],
   "links": [

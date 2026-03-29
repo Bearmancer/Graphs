@@ -175,7 +175,7 @@
     },
     {
       "id": "Olga_Alliluyeva",
-      "label": "Olga Alliluyeva (n\u00e9e Fedorenko)",
+      "label": "Olga Alliluyeva (née Fedorenko)",
       "title": "Nadya's mother",
       "faction": "family",
       "centrality": 4,
@@ -275,7 +275,7 @@
       "title": "Gorky regional boss and Fourth Secretary",
       "faction": "politburo_core",
       "centrality": 5,
-      "bio": "Cultivated party boss promoted to Fourth Secretary after Kirov's murder. Stalin grooms him as an ideological enforcer and key lieutenant, and he later becomes the cultural tsarist of the post-war years."
+      "bio": "Cultivated party boss promoted to Fourth Secretary after Kirov's murder. Stalin grooms him as an ideological enforcer and key lieutenant."
     },
     {
       "id": "Vyshinsky",
@@ -291,7 +291,7 @@
       "title": "Soviet supreme military commander",
       "faction": "military",
       "centrality": 5,
-      "bio": "Brilliant and blunt general who emerges as the Red Army's most effective battlefield commander during the Second World War. Stalin relies on him absolutely while also fearing his popularity and independent stature."
+      "bio": "Brilliant and blunt general deployed to key fronts as Germany strikes deep into Soviet territory. His results-focused directness and strategic clarity make him indispensable to Stalin, who relies on him for critical operations while keeping a wary eye on his growing battlefield reputation."
     },
     {
       "id": "Malenkov",

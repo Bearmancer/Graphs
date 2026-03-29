@@ -5,8 +5,6 @@ import {
   FACTION_LABELS,
   EDGE_COLORS,
   EDGE_LABELS,
-  LATER_RELEVANCE_COLORS,
-  LATER_RELEVANCE_LABELS,
 } from "../types";
 import { linkSourceId, linkTargetId } from "../utils/linkHelpers";
 import styles from "./NodeDetail.module.css";
@@ -160,29 +158,6 @@ export default function NodeDetail({
           <div className={styles.bio}>{node.bio}</div>
         </div>
 
-        {(node.laterRelevance || node.laterNote) && (
-          <div className={styles.section}>
-            <div className={styles.sectionLabel}>Later In Book</div>
-            {node.laterRelevance && (
-              <div className={styles.badgeRow}>
-                <span
-                  className={styles.factionBadge}
-                  style={{
-                    background: `${LATER_RELEVANCE_COLORS[node.laterRelevance]}22`,
-                    color: LATER_RELEVANCE_COLORS[node.laterRelevance],
-                    borderColor: `${LATER_RELEVANCE_COLORS[node.laterRelevance]}55`,
-                  }}
-                >
-                  {LATER_RELEVANCE_LABELS[node.laterRelevance]}
-                </span>
-              </div>
-            )}
-            {node.laterNote && (
-              <div className={styles.bio}>{node.laterNote}</div>
-            )}
-          </div>
-        )}
-
         <div className={styles.section}>
           <div className={styles.sectionLabel}>Chapter Snapshot</div>
           <div className={styles.metrics}>
@@ -251,6 +226,9 @@ export default function NodeDetail({
                 const otherNode = nodeMap[otherId];
                 const edgeColor = EDGE_COLORS[link.type as EdgeType] ?? "#888";
                 const directionLabel = srcId === node.id ? "→" : "←";
+                const otherFactionColor = otherNode
+                  ? (FACTION_COLORS[otherNode.faction] ?? "#888")
+                  : "#888";
                 return (
                   <li key={i} className={styles.relItem}>
                     <div className={styles.relHeader}>
@@ -268,6 +246,27 @@ export default function NodeDetail({
                       <span className={styles.relTarget}>
                         {otherNode?.label ?? otherId}
                       </span>
+                    </div>
+                    {otherNode && (
+                      <div className={styles.relCharMeta}>
+                        <span
+                          className={styles.relFactionBadge}
+                          style={{
+                            background: `${otherFactionColor}22`,
+                            color: otherFactionColor,
+                            borderColor: `${otherFactionColor}55`,
+                          }}
+                        >
+                          {FACTION_LABELS[otherNode.faction]}
+                        </span>
+                        <span className={styles.relCharTitle}>
+                          {otherNode.title}
+                        </span>
+                      </div>
+                    )}
+                    <div className={styles.relStrength}>
+                      Strength {link.weight}/10 · Centrality{" "}
+                      {otherNode?.centrality ?? "—"}/10
                     </div>
                     <span className={styles.relDesc}>{link.description}</span>
                   </li>
