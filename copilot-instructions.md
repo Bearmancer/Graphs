@@ -59,10 +59,10 @@ src/
 
 ## Two Graph Layout Types
 
-| Layout   | Metaphor                | Renderer                | Use When                                       |
-|----------|-------------------------|-------------------------|-------------------------------------------------|
-| **Stalin** | Force-directed network | `react-force-graph-2d`  | Web of overlapping, multi-typed relationships   |
-| **Bülow**  | Top-to-bottom tree     | Not yet implemented     | Lineage, descent, chain of command, tree-shaped  |
+| Layout     | Metaphor               | Renderer               | Use When                                        |
+| ---------- | ---------------------- | ---------------------- | ----------------------------------------------- |
+| **Stalin** | Force-directed network | `react-force-graph-2d` | Web of overlapping, multi-typed relationships   |
+| **Bülow**  | Top-to-bottom tree     | Not yet implemented    | Lineage, descent, chain of command, tree-shaped |
 
 ## Key Conventions
 
