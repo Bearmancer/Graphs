@@ -116,12 +116,25 @@ const snapshotByChapter = new Map<number, ChapterSnapshot>(
 
 const orderedSnapshots = [...SNAPSHOTS].sort((a, b) => a.chapter - b.chapter);
 
+/**
+ * Binary search for the largest snapshot whose chapter number is <= chapterNumber.
+ * orderedSnapshots is pre-sorted ascending by chapter, so this is O(log n).
+ */
 const findLatestSnapshotAtOrBefore = (chapterNumber: number): ChapterSnapshot => {
-  for (let i = orderedSnapshots.length - 1; i >= 0; i -= 1) {
-    const snapshot = orderedSnapshots[i];
-    if (snapshot.chapter <= chapterNumber) return snapshot;
+  let lo = 0;
+  let hi = orderedSnapshots.length - 1;
+  let result = orderedSnapshots[0];
+  while (lo <= hi) {
+    const mid = (lo + hi) >>> 1;
+    const midChapter = orderedSnapshots[mid].chapter;
+    if (midChapter <= chapterNumber) {
+      result = orderedSnapshots[mid];
+      lo = mid + 1;
+    } else {
+      hi = mid - 1;
+    }
   }
-  return orderedSnapshots[0];
+  return result;
 };
 
 const chapters: ChapterMeta[] = [prologue];

@@ -176,7 +176,7 @@ const FilterBar: React.FC<FilterBarProps> = ({
                 type="search"
                 value={searchQuery}
                 onChange={(e) => onSearchQueryChange(e.target.value)}
-                placeholder="Search characters by name, role, or later note"
+                placeholder="Search characters by name, role, or bio"
                 aria-label="Search characters"
               />
               <div className={styles.searchResults}>

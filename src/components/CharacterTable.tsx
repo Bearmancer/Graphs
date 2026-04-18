@@ -9,8 +9,17 @@ import { linkSourceId, linkTargetId } from "../utils/linkHelpers";
 import styles from "./CharacterTable.module.css";
 
 const MAX_PROPER_NOUNS_DISPLAY = 180;
+/**
+ * Matches proper nouns using two alternation arms:
+ *   [A-Z]{2,}                   – all-caps abbreviations (e.g. NKVD, GPU, USSR)
+ *   [A-Z][A-Za-zÀ-ÖØ-öø-ÿ’'-]* – a word starting uppercase then any mix of
+ *                                   letters (incl. accented), hyphens, apostrophes
+ *                                   (e.g. Stalin, O'Brien, Al-Khobar)
+ * The outer group repeats after optional whitespace so that contiguous capitalized
+ * words like "Joseph Stalin" or "Red Army" are captured as a single token.
+ */
 const PROPER_NOUN_REGEX =
-  /\b(?:[A-Z]{2,}|[A-Z][A-Za-zÀ-ÖØ-öø-ÿ'’-]*)(?:\s+(?:[A-Z]{2,}|[A-Z][A-Za-zÀ-ÖØ-öø-ÿ'’-]*))*/g;
+  /\b(?:[A-Z]{2,}|[A-Z][A-Za-zÀ-ÖØ-öø-ÿ’'-]*)(?:\s+(?:[A-Z]{2,}|[A-Z][A-Za-zÀ-ÖØ-öø-ÿ’'-]*))*/g;
 
 function toArcSummary(
   points: CharacterArcPoint[] | undefined,

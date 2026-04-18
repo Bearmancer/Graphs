@@ -233,8 +233,12 @@ export default function BookExperience({ onBack }: { onBack: () => void }) {
           bio: node.bio,
           isFirstAppearance,
         };
-        const priorPoints = arcs.get(node.id) ?? [];
-        arcs.set(node.id, [...priorPoints, point]);
+        let nodePoints = arcs.get(node.id);
+        if (!nodePoints) {
+          nodePoints = [];
+          arcs.set(node.id, nodePoints);
+        }
+        nodePoints.push(point);
         snapshots.set(node.id, {
           title: node.title,
           bio: node.bio,
