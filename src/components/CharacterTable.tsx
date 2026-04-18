@@ -8,21 +8,24 @@ import {
 import { linkSourceId, linkTargetId } from "../utils/linkHelpers";
 import styles from "./CharacterTable.module.css";
 
-const HAS_UPPERCASE_LETTER = /[A-Z]/;
 const MAX_PROPER_NOUNS_DISPLAY = 180;
 const PROPER_NOUN_REGEX =
   /\b(?:[A-Z]{2,}|[A-Z][A-Za-zÀ-ÖØ-öø-ÿ'’-]*)(?:\s+(?:[A-Z]{2,}|[A-Z][A-Za-zÀ-ÖØ-öø-ÿ'’-]*))*/g;
 
-function toArcSummary(points: CharacterArcPoint[] | undefined, chapterLabel: string) {
+function toArcSummary(
+  points: CharacterArcPoint[] | undefined,
+  activeChapterLabel: string,
+) {
   if (!points || points.length === 0) {
-    return `No arc milestones recorded through ${chapterLabel}.`;
+    return `No arc milestones recorded through ${activeChapterLabel}.`;
   }
   const first = points[0];
   const latest = points[points.length - 1];
+  const centralityText = `current centrality ${latest.centrality}/10.`;
   if (points.length === 1) {
-    return `First appears in ${first.chapterLabel}; current centrality ${latest.centrality}/10.`;
+    return `First appears in ${first.chapterLabel}; ${centralityText}`;
   }
-  return `First appears in ${first.chapterLabel}; ${points.length - 1} update milestone(s) through ${chapterLabel}; current centrality ${latest.centrality}/10.`;
+  return `First appears in ${first.chapterLabel}; ${points.length - 1} update milestone(s) through ${activeChapterLabel}; ${centralityText}`;
 }
 
 interface Props {
@@ -83,7 +86,7 @@ export default function CharacterTable({
     const counts = new Map<string, number>();
 
     const consume = (text: string) => {
-      if (!text || !HAS_UPPERCASE_LETTER.test(text)) return;
+      if (!text || text.toLowerCase() === text.toUpperCase()) return;
       const matches = text.match(PROPER_NOUN_REGEX);
       if (!matches) return;
       for (const match of matches) {

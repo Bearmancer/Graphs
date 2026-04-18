@@ -115,12 +115,13 @@ const snapshotByChapter = new Map<number, ChapterSnapshot>(
 );
 
 const orderedSnapshots = [...SNAPSHOTS].sort((a, b) => a.chapter - b.chapter);
+
 const findLatestSnapshotAtOrBefore = (chapterNumber: number): ChapterSnapshot => {
   for (let i = orderedSnapshots.length - 1; i >= 0; i -= 1) {
     const snapshot = orderedSnapshots[i];
     if (snapshot.chapter <= chapterNumber) return snapshot;
   }
-  return orderedSnapshots[0] as ChapterSnapshot;
+  return orderedSnapshots[0];
 };
 
 const chapters: ChapterMeta[] = [prologue];
