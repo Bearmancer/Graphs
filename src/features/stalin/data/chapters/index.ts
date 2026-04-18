@@ -24,6 +24,7 @@ type ChapterSnapshot = {
   data: GraphData;
 };
 
+// Numeric snapshots begin at Chapter 1; prologue is a named non-numeric boundary.
 const SNAPSHOTS: ChapterSnapshot[] = [
   {
     chapter: 1,
@@ -114,16 +115,19 @@ const snapshotByChapter = new Map<number, ChapterSnapshot>(
 );
 
 const orderedSnapshots = [...SNAPSHOTS].sort((a, b) => a.chapter - b.chapter);
+const findLatestSnapshotAtOrBefore = (chapterNumber: number): ChapterSnapshot => {
+  for (let i = orderedSnapshots.length - 1; i >= 0; i -= 1) {
+    const snapshot = orderedSnapshots[i];
+    if (snapshot.chapter <= chapterNumber) return snapshot;
+  }
+  return orderedSnapshots[0] as ChapterSnapshot;
+};
 
 const chapters: ChapterMeta[] = [prologue];
 
 for (let chapterNumber = 1; chapterNumber <= 58; chapterNumber += 1) {
   const exactSnapshot = snapshotByChapter.get(chapterNumber);
-  const latestSnapshot =
-    [...orderedSnapshots]
-      .reverse()
-      .find((snapshot) => snapshot.chapter <= chapterNumber) ??
-    orderedSnapshots[0];
+  const latestSnapshot = findLatestSnapshotAtOrBefore(chapterNumber);
 
   chapters.push({
     id: `ch${chapterNumber}`,

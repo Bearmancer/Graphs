@@ -8,7 +8,8 @@ import {
 import { linkSourceId, linkTargetId } from "../utils/linkHelpers";
 import styles from "./CharacterTable.module.css";
 
-const HAS_UPPERCASE_REGEX = /[A-Z]/;
+const HAS_UPPERCASE_LETTER = /[A-Z]/;
+const MAX_PROPER_NOUNS_DISPLAY = 180;
 const PROPER_NOUN_REGEX =
   /\b(?:[A-Z]{2,}|[A-Z][A-Za-zÀ-ÖØ-öø-ÿ'’-]*)(?:\s+(?:[A-Z]{2,}|[A-Z][A-Za-zÀ-ÖØ-öø-ÿ'’-]*))*/g;
 
@@ -82,7 +83,7 @@ export default function CharacterTable({
     const counts = new Map<string, number>();
 
     const consume = (text: string) => {
-      if (!text || !HAS_UPPERCASE_REGEX.test(text)) return;
+      if (!text || !HAS_UPPERCASE_LETTER.test(text)) return;
       const matches = text.match(PROPER_NOUN_REGEX);
       if (!matches) return;
       for (const match of matches) {
@@ -140,7 +141,7 @@ export default function CharacterTable({
 
       {debugProperNouns && (
         <div className={styles.debugPanel} aria-label="Proper noun debug output">
-          {properNounRows.slice(0, 180).map((entry) => (
+          {properNounRows.slice(0, MAX_PROPER_NOUNS_DISPLAY).map((entry) => (
             <div key={entry.noun} className={styles.debugItem}>
               <span>{entry.noun}</span>
               <strong>{entry.count}</strong>
