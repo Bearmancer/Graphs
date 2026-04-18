@@ -125,7 +125,7 @@ const findLatestSnapshotAtOrBefore = (chapterNumber: number): ChapterSnapshot =>
   let hi = orderedSnapshots.length - 1;
   let result = orderedSnapshots[0];
   while (lo <= hi) {
-    const mid = (lo + hi) >>> 1;
+    const mid = (lo + hi) >>> 1; // unsigned right-shift avoids signed-overflow on large integers
     const midChapter = orderedSnapshots[mid].chapter;
     if (midChapter <= chapterNumber) {
       result = orderedSnapshots[mid];

@@ -95,6 +95,7 @@ export default function CharacterTable({
     const counts = new Map<string, number>();
 
     const consume = (text: string) => {
+      // Skip strings with no cased characters (digits, symbols, spaces) — nothing to match
       if (!text || text.toLowerCase() === text.toUpperCase()) return;
       const matches = text.match(PROPER_NOUN_REGEX);
       if (!matches) return;
