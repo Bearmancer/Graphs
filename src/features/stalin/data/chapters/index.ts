@@ -18,104 +18,122 @@ import ch47Data from "./ch47.json";
 import ch54Data from "./ch54.json";
 import ch58Data from "./ch58.json";
 
-const chapters: ChapterMeta[] = [
+type ChapterSnapshot = {
+  chapter: number;
+  description: string;
+  data: GraphData;
+};
+
+const SNAPSHOTS: ChapterSnapshot[] = [
   {
-    id: "prologue",
-    label: "Prologue",
-    description: "The Last Supper – Nadya's final evening at Voroshilov's dinner (Nov 1932)",
-    data: prologueData as unknown as GraphData,
-  },
-  {
-    id: "ch1",
-    label: "Chapter 1",
-    description: "The Kremlin family and the magnates who orbit Stalin's court",
+    chapter: 1,
+    description: "The Kremlin household and its core political circle come into focus.",
     data: ch1Data as unknown as GraphData,
   },
   {
-    id: "ch2",
-    label: "Chapter 2",
-    description: "Succession politics, rivals, and the full Kremlin network",
+    chapter: 2,
+    description: "Succession tensions and rivalries reshape the court's alignments.",
     data: ch2Data as unknown as GraphData,
   },
   {
-    id: "ch3-recap",
-    label: "Ch 3 Recap ★",
-    description: "Full cast through Ch 2 — default view",
+    chapter: 3,
+    description: "Early-court recap boundary for the first phase of the network.",
     data: fullData as unknown as GraphData,
   },
   {
-    id: "ch5",
-    label: "Chapter 5",
-    description: "Holidays and Hell – the Politburo's seaside life (1931–32); Beria enters Stalin's circle",
+    chapter: 5,
+    description: "Court life widens around holiday politics, patronage, and access.",
     data: ch5Data as unknown as GraphData,
   },
   {
-    id: "ch7",
-    label: "Chapter 7",
-    description: "Stalin the Intellectual – Gorky's dinner and the birth of Socialist Realism (1932)",
+    chapter: 7,
+    description: "Culture, prestige, and influence become major drivers in the inner circle.",
     data: ch7Data as unknown as GraphData,
   },
   {
-    id: "ch9",
-    label: "Chapter 9",
-    description: "The Omnipotent Widower – Stalin after Nadya's death; Sergo's rising power (1932–33)",
+    chapter: 9,
+    description: "Household strain and elite maneuvering intensify inside the Kremlin world.",
     data: ch9Data as unknown as GraphData,
   },
   {
-    id: "ch11",
-    label: "Chapter 11",
-    description: "Assassination of the Favourite – Kirov murdered; Yezhov begins his rise (Dec 1934)",
+    chapter: 11,
+    description: "A political shock event reorders trust, security, and access.",
     data: ch11Data as unknown as GraphData,
   },
   {
-    id: "ch14",
-    label: "Chapter 14",
-    description: "The Dwarf Rises – Yezhov consolidates power; the old guard weakens (1935)",
+    chapter: 14,
+    description: "Security leadership and party leverage shift the court's balance.",
     data: ch14Data as unknown as GraphData,
   },
   {
-    id: "ch17",
-    label: "Chapter 17",
-    description: "The Executioner – Zinoviev and Kamenev shot; Beria and Yezhov ascend (1936)",
+    chapter: 17,
+    description: "Show-trial politics and rank adjustments tighten the power structure.",
     data: ch17Data as unknown as GraphData,
   },
   {
-    id: "ch23",
-    label: "Chapter 23",
-    description: "The Great Terror – mass purges strip the court; Bukharin, Tukhachevsky, and more are gone (1937–38)",
+    chapter: 23,
+    description: "Terror-era governance transforms the court's composition and ties.",
     data: ch23Data as unknown as GraphData,
   },
   {
-    id: "ch34",
-    label: "Chapter 34",
-    description: "Siege of Leningrad – WWII begins; Zhukov enters; Yezhov is gone (1941)",
+    chapter: 34,
+    description: "Wartime command pressures redraw relationships across political and military actors.",
     data: ch34Data as unknown as GraphData,
   },
   {
-    id: "ch39",
-    label: "Chapter 39",
-    description: "The Supremo of Stalingrad – Stalin directs the pivotal battle from Moscow (1942–43)",
+    chapter: 39,
+    description: "Stalingrad-era command dynamics consolidate strategic authority.",
     data: ch39Data as unknown as GraphData,
   },
   {
-    id: "ch47",
-    label: "Chapter 47",
-    description: "Molotov's Chance – post-war power struggles; Malenkov and Beria rise (1945–46)",
+    chapter: 47,
+    description: "Post-war rivalry and succession positioning sharpen inside the leadership.",
     data: ch47Data as unknown as GraphData,
   },
   {
-    id: "ch54",
-    label: "Chapter 54",
-    description: "The Leningrad Case – Zhdanov dead; Voznesensky and Kuznetsov purged (1949–50)",
+    chapter: 54,
+    description: "Late-period elite conflict narrows trust and reshapes court alliances.",
     data: ch54Data as unknown as GraphData,
   },
   {
-    id: "ch58",
-    label: "Chapter 58",
-    description: "Stalin's Death – the final court; Stalin collapses; the succession opens (Mar 1953)",
+    chapter: 58,
+    description: "Final chapter boundary for the Stalin-court network.",
     data: ch58Data as unknown as GraphData,
   },
 ];
+
+const prologue: ChapterMeta = {
+  id: "prologue",
+  label: "Prologue",
+  description: "Opening Kremlin dinner scene and immediate household context.",
+  data: prologueData as unknown as GraphData,
+};
+
+const snapshotByChapter = new Map<number, ChapterSnapshot>(
+  SNAPSHOTS.map((snapshot) => [snapshot.chapter, snapshot]),
+);
+
+const orderedSnapshots = [...SNAPSHOTS].sort((a, b) => a.chapter - b.chapter);
+
+const chapters: ChapterMeta[] = [prologue];
+
+for (let chapterNumber = 1; chapterNumber <= 58; chapterNumber += 1) {
+  const exactSnapshot = snapshotByChapter.get(chapterNumber);
+  const latestSnapshot =
+    [...orderedSnapshots]
+      .reverse()
+      .find((snapshot) => snapshot.chapter <= chapterNumber) ??
+    orderedSnapshots[0];
+
+  chapters.push({
+    id: `ch${chapterNumber}`,
+    label: `Chapter ${chapterNumber}`,
+    description:
+      exactSnapshot?.description ??
+      `No new extraction checkpoint for this chapter yet; graph remains at cumulative state through Chapter ${latestSnapshot.chapter}.`,
+    data: (exactSnapshot?.data ?? latestSnapshot.data) as GraphData,
+  });
+}
 
 export const DEFAULT_CHAPTER_ID = "prologue";
 

@@ -89,6 +89,8 @@ Each variant lives in `src/features/<variant-id>/` and contains:
   plus chapter 1 additions.
 - `laterRelevance` and `laterNote` fields are **stripped** from per-chapter
   files to avoid spoilers. They only appear in the full/recap dataset.
+- Keep chapter-facing text strictly time-bounded to the active chapter and
+  avoid foreshadowing future events, fate outcomes, or retrospective spoilers.
 - When a character **dies** or is **removed**, they should be omitted from
   subsequent chapter files and tracked in a removal list.
 

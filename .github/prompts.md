@@ -61,7 +61,7 @@ Rules:
   - remove low-value one-off observers if they no longer meet the rule
 - Preserve already-correct nodes, links, and bios unless the new chapter requires revision.
 - Keep all bios time-bounded to what is true as of the new chapter end.
-- Avoid later fates, later titles, and retrospective spoilers.
+- Avoid later fates, later titles, retrospective spoilers, and foreshadowing language.
 
 Tasks:
 1. Identify newly in-scope characters, relationships, and institutions.
@@ -158,10 +158,11 @@ When validating iterative chapter graphs for any book variant:
      living characters.
 
 2. No spoilers:
-   - `laterRelevance` and `laterNote` fields must NOT appear in per-chapter
-     files. They belong only in the full/recap dataset.
-   - Bios must be time-bounded: describe only what is known up to the current
-     chapter boundary.
+    - `laterRelevance` and `laterNote` fields must NOT appear in per-chapter
+      files. They belong only in the full/recap dataset.
+    - Bios must be time-bounded: describe only what is known up to the current
+      chapter boundary.
+    - Avoid wording that hints at future events, eventual outcomes, or later fate.
 
 3. Consistency:
    - Node IDs must be stable across chapters (same person = same ID).

@@ -4,8 +4,8 @@ import type { ChapterMeta } from "../types";
 import styles from "./FilterBar.module.css";
 
 interface FilterBarProps {
-  viewMode: "graph" | "table";
-  onViewModeChange: (view: "graph" | "table") => void;
+  viewMode: "graph" | "table" | "chapter-summary";
+  onViewModeChange: (view: "graph" | "table" | "chapter-summary") => void;
   activeFilters: Set<EdgeType>;
   onToggle: (type: EdgeType) => void;
   activeTab: "filters" | "search";
@@ -89,6 +89,18 @@ const FilterBar: React.FC<FilterBarProps> = ({
           tabIndex={viewMode === "table" ? 0 : -1}
         >
           Table
+        </button>
+        <button
+          id="summary-tab"
+          role="tab"
+          className={styles.viewModeButton}
+          data-active={viewMode === "chapter-summary"}
+          onClick={() => onViewModeChange("chapter-summary")}
+          aria-selected={viewMode === "chapter-summary"}
+          aria-controls="summary-panel"
+          tabIndex={viewMode === "chapter-summary" ? 0 : -1}
+        >
+          Chapter Summary
         </button>
       </div>
 
@@ -193,6 +205,13 @@ const FilterBar: React.FC<FilterBarProps> = ({
         <div className={styles.modeHint}>
           Table view keeps the same chapter dataset in a searchable reference
           layout.
+        </div>
+      )}
+
+      {viewMode === "chapter-summary" && (
+        <div className={styles.modeHint}>
+          Chapter summary view gives a spoiler-safe overview for the selected
+          chapter boundary.
         </div>
       )}
     </div>

@@ -1,5 +1,6 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import type { GraphLink, GraphNode } from "../types";
+import type { CharacterArcPoint } from "../features/stalin/BookExperience";
 import {
   FACTION_COLORS,
   FACTION_LABELS,
@@ -7,9 +8,27 @@ import {
 import { linkSourceId, linkTargetId } from "../utils/linkHelpers";
 import styles from "./CharacterTable.module.css";
 
+const HAS_UPPERCASE_REGEX = /[A-Z]/;
+const PROPER_NOUN_REGEX =
+  /\b(?:[A-Z]{2,}|[A-Z][A-Za-zÀ-ÖØ-öø-ÿ'’-]*)(?:\s+(?:[A-Z]{2,}|[A-Z][A-Za-zÀ-ÖØ-öø-ÿ'’-]*))*/g;
+
+function toArcSummary(points: CharacterArcPoint[] | undefined, chapterLabel: string) {
+  if (!points || points.length === 0) {
+    return `No arc milestones recorded through ${chapterLabel}.`;
+  }
+  const first = points[0];
+  const latest = points[points.length - 1];
+  if (points.length === 1) {
+    return `First appears in ${first.chapterLabel}; current centrality ${latest.centrality}/10.`;
+  }
+  return `First appears in ${first.chapterLabel}; ${points.length - 1} update milestone(s) through ${chapterLabel}; current centrality ${latest.centrality}/10.`;
+}
+
 interface Props {
   nodes: GraphNode[];
   links: GraphLink[];
+  activeChapterLabel: string;
+  characterArcs: Map<string, CharacterArcPoint[]>;
   searchQuery: string;
   onSearchQueryChange: (value: string) => void;
   onSelectNode: (id: string) => void;
@@ -19,11 +38,15 @@ interface Props {
 export default function CharacterTable({
   nodes,
   links,
+  activeChapterLabel,
+  characterArcs,
   searchQuery,
   onSearchQueryChange,
   onSelectNode,
   selectedNodeId,
 }: Props) {
+  const [debugProperNouns, setDebugProperNouns] = useState(false);
+
   const connectionCounts = useMemo(() => {
     const counts = new Map<string, number>();
     for (const link of links) {
@@ -54,6 +77,33 @@ export default function CharacterTable({
     );
   }, [nodes, searchQuery]);
 
+  const properNounRows = useMemo(() => {
+    if (!debugProperNouns) return [];
+    const counts = new Map<string, number>();
+
+    const consume = (text: string) => {
+      if (!text || !HAS_UPPERCASE_REGEX.test(text)) return;
+      const matches = text.match(PROPER_NOUN_REGEX);
+      if (!matches) return;
+      for (const match of matches) {
+        const noun = match.trim();
+        counts.set(noun, (counts.get(noun) ?? 0) + 1);
+      }
+    };
+
+    for (const node of nodes) {
+      consume(node.label);
+      consume(node.title);
+      consume(node.bio);
+      for (const nickname of node.nicknames ?? []) consume(nickname);
+    }
+    for (const link of links) consume(link.description);
+
+    return [...counts.entries()]
+      .map(([noun, count]) => ({ noun, count }))
+      .sort((a, b) => b.count - a.count || a.noun.localeCompare(b.noun));
+  }, [debugProperNouns, nodes, links]);
+
   return (
     <section className={styles.shell} aria-label="Character table">
       <div className={styles.header}>
@@ -72,6 +122,35 @@ export default function CharacterTable({
           aria-label="Search character table"
         />
       </div>
+      <div className={styles.debugRow}>
+        <label className={styles.debugLabel}>
+          <input
+            type="checkbox"
+            checked={debugProperNouns}
+            onChange={(event) => setDebugProperNouns(event.target.checked)}
+          />
+          Debug proper nouns (uppercase regex collation)
+        </label>
+        {debugProperNouns ? (
+          <span className={styles.debugMeta}>
+            {properNounRows.length} noun entries in current chapter dataset
+          </span>
+        ) : null}
+      </div>
+
+      {debugProperNouns && (
+        <div className={styles.debugPanel} aria-label="Proper noun debug output">
+          {properNounRows.slice(0, 180).map((entry) => (
+            <div key={entry.noun} className={styles.debugItem}>
+              <span>{entry.noun}</span>
+              <strong>{entry.count}</strong>
+            </div>
+          ))}
+          {properNounRows.length === 0 && (
+            <div className={styles.debugEmpty}>No uppercase proper nouns found.</div>
+          )}
+        </div>
+      )}
 
       <div className={styles.tableWrap}>
         <table className={styles.table}>
@@ -130,7 +209,12 @@ export default function CharacterTable({
                       Centrality {node.centrality}/10
                     </div>
                   </td>
-                  <td className={styles.textCell}>{node.bio}</td>
+                  <td className={styles.textCell}>
+                    <div>{node.bio}</div>
+                    <div className={styles.arcMeta}>
+                      {toArcSummary(characterArcs.get(node.id), activeChapterLabel)}
+                    </div>
+                  </td>
                   <td className={styles.numeric}>
                     {connectionCounts.get(node.id) ?? 0}
                   </td>

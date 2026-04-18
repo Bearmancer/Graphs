@@ -1,5 +1,6 @@
 import { useEffect, useCallback } from "react";
 import type { GraphNode, GraphLink, EdgeType } from "../types";
+import type { CharacterArcPoint } from "../features/stalin/BookExperience";
 import {
   FACTION_COLORS,
   FACTION_LABELS,
@@ -13,17 +14,21 @@ interface Props {
   node: GraphNode | null;
   links: GraphLink[];
   allNodes: GraphNode[];
+  activeChapterLabel: string;
+  characterArc: CharacterArcPoint[];
   onClose: () => void;
   panelWidth?: number;
   onRequestPanelWidthChange?: (w: number) => void;
   /** "graph" shows a brief summary; "table" shows the full chronological detail. */
-  viewMode?: "graph" | "table";
+  viewMode?: "graph" | "table" | "chapter-summary";
 }
 
 export default function NodeDetail({
   node,
   links,
   allNodes,
+  activeChapterLabel,
+  characterArc,
   onClose,
   panelWidth,
   onRequestPanelWidthChange,
@@ -157,6 +162,31 @@ export default function NodeDetail({
           <div className={styles.sectionLabel}>Overview</div>
           <div className={styles.bio}>{node.bio}</div>
         </div>
+
+        {characterArc.length > 0 && (
+          <div className={styles.section}>
+            <div className={styles.sectionLabel}>
+              Character Arc Through {activeChapterLabel}
+            </div>
+            <ul className={styles.keyList}>
+              {characterArc.map((point, index) => (
+                <li
+                  key={`${point.chapterId}-${index}`}
+                  className={styles.keyItem}
+                >
+                  <span className={styles.keyTitle}>
+                    {point.chapterLabel}
+                    {point.isFirstAppearance ? " · First appearance" : ""}
+                  </span>
+                  <span className={styles.keyMeta}>
+                    {point.title} · Centrality {point.centrality}/10
+                  </span>
+                  <span className={styles.relDesc}>{point.bio}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
 
         <div className={styles.section}>
           <div className={styles.sectionLabel}>Chapter Snapshot</div>

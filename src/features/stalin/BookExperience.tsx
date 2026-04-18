@@ -12,9 +12,19 @@ import {
 import chapters, { DEFAULT_CHAPTER_ID } from "./data/chapters";
 import CharacterTable from "../../components/CharacterTable";
 import { DEFAULT_BASE_SIZE_PX } from "../../fontSizes";
+import ChapterSummary from "../../components/ChapterSummary";
 
 const DEFAULT_CHAPTER_IDX = Math.max(0, chapters.findIndex((c) => c.id === DEFAULT_CHAPTER_ID));
 const ALL_EDGE_TYPES = new Set(Object.keys(EDGE_LABELS) as EdgeType[]);
+
+export interface CharacterArcPoint {
+  chapterId: string;
+  chapterLabel: string;
+  title: string;
+  centrality: number;
+  bio: string;
+  isFirstAppearance: boolean;
+}
 
 type AllSettings = {
   fontUI: string;
@@ -62,7 +72,9 @@ export default function BookExperience({ onBack }: { onBack: () => void }) {
   const [chapterIdx, setChapterIdx] = useState(DEFAULT_CHAPTER_IDX);
   const graphData = chapters[chapterIdx].data;
   const allNodes = graphData.nodes as GraphNode[];
-  const [viewMode, setViewMode] = useState<"graph" | "table">("graph");
+  const [viewMode, setViewMode] = useState<"graph" | "table" | "chapter-summary">(
+    "graph",
+  );
   const [selectedNode, setSelectedNode] = useState<GraphNode | null>(null);
   const [activeFilters, setActiveFilters] = useState<Set<EdgeType>>(
     new Set(ALL_EDGE_TYPES),
@@ -77,6 +89,12 @@ export default function BookExperience({ onBack }: { onBack: () => void }) {
       return 340;
     }
   });
+
+  useEffect(() => {
+    setSelectedNode((prev) =>
+      prev && allNodes.some((node) => node.id === prev.id) ? prev : null,
+    );
+  }, [allNodes]);
 
   // Load settings from localStorage or computed style
   const [settings, setSettings] = useState<AllSettings>(() => {
@@ -186,6 +204,48 @@ export default function BookExperience({ onBack }: { onBack: () => void }) {
     [allNodes],
   );
 
+  const characterArcs = useMemo(() => {
+    const arcs = new Map<string, CharacterArcPoint[]>();
+    const snapshots = new Map<
+      string,
+      { title: string; bio: string; centrality: number }
+    >();
+
+    for (let i = 0; i <= chapterIdx; i += 1) {
+      const chapter = chapters[i];
+      const chapterNodes = chapter.data.nodes as GraphNode[];
+      for (const node of chapterNodes) {
+        const previous = snapshots.get(node.id);
+        const isFirstAppearance = !previous;
+        const changed =
+          isFirstAppearance ||
+          previous.title !== node.title ||
+          previous.bio !== node.bio ||
+          previous.centrality !== node.centrality;
+
+        if (!changed) continue;
+
+        const point: CharacterArcPoint = {
+          chapterId: chapter.id,
+          chapterLabel: chapter.label,
+          title: node.title,
+          centrality: node.centrality,
+          bio: node.bio,
+          isFirstAppearance,
+        };
+        const priorPoints = arcs.get(node.id) ?? [];
+        arcs.set(node.id, [...priorPoints, point]);
+        snapshots.set(node.id, {
+          title: node.title,
+          bio: node.bio,
+          centrality: node.centrality,
+        });
+      }
+    }
+
+    return arcs;
+  }, [chapterIdx]);
+
   return (
     <>
       <FilterBar
@@ -225,6 +285,8 @@ export default function BookExperience({ onBack }: { onBack: () => void }) {
           <CharacterTable
             nodes={allNodes}
             links={graphData.links as GraphLink[]}
+            activeChapterLabel={chapters[chapterIdx].label}
+            characterArcs={characterArcs}
             searchQuery={searchQuery}
             onSearchQueryChange={setSearchQuery}
             onSelectNode={handleTableNodeSelect}
@@ -232,10 +294,21 @@ export default function BookExperience({ onBack }: { onBack: () => void }) {
           />
         </div>
       )}
+      {viewMode === "chapter-summary" && (
+        <div id="summary-panel" role="tabpanel" aria-labelledby="summary-tab">
+          <ChapterSummary
+            chapter={chapters[chapterIdx]}
+            nodes={allNodes}
+            links={graphData.links as GraphLink[]}
+          />
+        </div>
+      )}
       <NodeDetail
         node={selectedNode}
         links={graphData.links as GraphLink[]}
         allNodes={allNodes}
+        activeChapterLabel={chapters[chapterIdx].label}
+        characterArc={selectedNode ? characterArcs.get(selectedNode.id) ?? [] : []}
         onClose={handleClose}
         panelWidth={panelWidth}
         onRequestPanelWidthChange={handlePanelWidthChange}
