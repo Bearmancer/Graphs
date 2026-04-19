@@ -10,7 +10,7 @@
         "Soso",
         "Koba"
       ],
-      "bio": "Georgian Bolshevik who rises from underground organiser and Civil War commissar to General Secretary. By the end of chapter 2 he stands at the center of an intimate Kremlin court and a strained marriage to Nadya."
+      "bio": "Georgian Bolshevik who has consolidated power as General Secretary. By this holiday period he dominates an intimate Kremlin court while his marriage to Nadya grows more strained. He favours the Black Sea coast—especially Sochi's Dacha No. 9—where he holidays with his magnates."
     },
     {
       "id": "Nadya_Alliluyeva",
@@ -21,7 +21,7 @@
       "nicknames": [
         "Tatka"
       ],
-      "bio": "Daughter of the Alliluyev household, committed Bolshevik, and later an Industrial Academy student. The prologue follows her last night after a bitter quarrel with Stalin at Voroshilov's dinner."
+      "bio": "Stalin's wife and Industrial Academy student. She joins the holidays but the bitter quarrel from the prologue still echoes in their relationship."
     },
     {
       "id": "Molotov",
@@ -112,7 +112,7 @@
       "nicknames": [
         "darling of the Party"
       ],
-      "bio": "Gifted theorist, painter, and charmer once close to both Stalin and Nadya. By chapter 2 he has been politically beaten by Stalin but still remains emotionally significant in their circle."
+      "bio": "Gifted theorist, painter, and charmer once close to both Stalin and Nadya. By this point he has been politically beaten by Stalin but still retains emotional significance in their circle."
     },
     {
       "id": "Trotsky",
@@ -130,7 +130,7 @@
       "faction": "politburo_core",
       "centrality": 5,
       "nicknames": [],
-      "bio": "Veteran Bolshevik who becomes central to the alliance politics that follow Lenin's illness. By chapter 2 he is part of the factional maneuvering around Stalin and Trotsky."
+      "bio": "Veteran Bolshevik who became central to the alliance politics following Lenin's illness. He remains involved in the factional maneuvering around Stalin."
     },
     {
       "id": "Zinoviev",
@@ -246,7 +246,7 @@
       "nicknames": [
         "Yasha"
       ],
-      "bio": "Stalin's elder son from the first marriage. By the time of the prologue he is back in the Kremlin household after an unsettled youth."
+      "bio": "Stalin's elder son from his first marriage. He remains settled within the Kremlin household."
     },
     {
       "id": "Vasily_Stalin",
@@ -275,7 +275,7 @@
       "faction": "family",
       "centrality": 3,
       "nicknames": [],
-      "bio": "Nadya's sister, present in family scenes from the Revolution to the last evening in the prologue."
+      "bio": "Nadya's sister, part of the extended family network that gathers on holiday."
     },
     {
       "id": "Vissarion_Djugashvili",
@@ -313,7 +313,7 @@
       "faction": "family",
       "centrality": 4,
       "nicknames": [],
-      "bio": "Nadya's brother, working for the Red Army and often returning with gifts from abroad. The dress and pistol tied to the prologue both come through him."
+      "bio": "Nadya's brother, a Red Army officer who often returns from abroad with gifts for the family."
     },
     {
       "id": "Sergei_Alliluyev",
@@ -326,7 +326,7 @@
     },
     {
       "id": "Olga_Alliluyeva",
-      "label": "Olga Alliluyeva (n\u00e9e Fedorenko)",
+      "label": "Olga Alliluyeva (née Fedorenko)",
       "title": "Nadya's mother",
       "faction": "family",
       "centrality": 4,
@@ -340,7 +340,7 @@
       "faction": "family",
       "centrality": 3,
       "nicknames": [],
-      "bio": "Nadya's brother who questions Stalin in 1917, works in his Commissariat, and later goes with him to Tsaritsyn."
+      "bio": "Nadya's brother who questioned Stalin back in 1917, worked in his Commissariat, and later accompanied him to Tsaritsyn."
     },
     {
       "id": "Alexander_Yegorov",
@@ -358,7 +358,7 @@
       "faction": "politburo_family",
       "centrality": 3,
       "nicknames": [],
-      "bio": "Glamorous actress and wife of Alexander Yegorov. Stalin's flirtation with her helps trigger Nadya's anger during the prologue."
+      "bio": "Glamorous actress and wife of Alexander Yegorov. Stalin's flirtation with her helped spark Nadya's anger during the prologue quarrel."
     },
     {
       "id": "Carolina_Til",
@@ -387,7 +387,7 @@
       "nicknames": [
         "Alyosha"
       ],
-      "bio": "Kato's brother, an old Georgian Bolshevik from the same seminary world as Stalin. By chapter 2 he belongs to the extended Svanidze-Alliluyev family network that still gives Stalin a Georgian domestic refuge."
+      "bio": "Kato's brother, an old Georgian Bolshevik from the same seminary world as Stalin. He remains a key link in the extended Svanidze-Alliluyev family network that gives Stalin a Georgian domestic refuge."
     },
     {
       "id": "Maria_Svanidze",
@@ -414,7 +414,7 @@
       "faction": "nkvd",
       "centrality": 4,
       "nicknames": [],
-      "bio": "Former Budapest Opera barber turned security chief in Stalin's entourage. On the night of the prologue he is one of the first men the frightened household turns to."
+      "bio": "Former Budapest Opera barber turned security chief in Stalin's entourage. He was one of the first men the frightened household turned to on the night of the prologue."
     },
     {
       "id": "Nikolai_Vlasik",
@@ -423,7 +423,7 @@
       "faction": "nkvd",
       "centrality": 4,
       "nicknames": [],
-      "bio": "One of the guards shadowing Stalin's movements. In the prologue's aftermath his recollections help map the last hours before Nadya's death."
+      "bio": "One of the guards shadowing Stalin's movements. His recollections help map the last hours before Nadya's death in the prologue."
     },
     {
       "id": "Yevgenia_Alliluyeva",
@@ -452,7 +452,7 @@
       "faction": "politburo_family",
       "centrality": 5,
       "nicknames": [],
-      "bio": "Andreyev's wife and one of Nadya's closest companions. She studies with Nadya and shares the same tram rides, gossip, and domestic-political overlap of chapter 2."
+      "bio": "Andreyev's wife and one of Nadya's closest companions. She studies with Nadya and shares the tram rides, gossip, and domestic-political overlap of the prologue."
     },
     {
       "id": "Beria",

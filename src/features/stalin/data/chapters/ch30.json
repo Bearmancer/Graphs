@@ -10,7 +10,7 @@
         "Soso",
         "Koba"
       ],
-      "bio": "Georgian Bolshevik now at peak power as General Secretary. Chapter 7 centres on the cultural world: Gorky's return, the Writers' Congress, and Stalin's cultivation of the intelligentsia. His marriage remains strained."
+      "bio": "Georgian Bolshevik who rises from underground organiser and Civil War commissar to General Secretary. By the end of chapter 2 he stands at the center of an intimate Kremlin court and a strained marriage to Nadya."
     },
     {
       "id": "Nadya_Alliluyeva",
@@ -21,7 +21,7 @@
       "nicknames": [
         "Tatka"
       ],
-      "bio": "Stalin's wife and Industrial Academy student. She appears less frequently as cultural events dominate."
+      "bio": "Daughter of the Alliluyev household, committed Bolshevik, and later an Industrial Academy student. The prologue follows her last night after a bitter quarrel with Stalin at Voroshilov's dinner."
     },
     {
       "id": "Molotov",
@@ -112,7 +112,7 @@
       "nicknames": [
         "darling of the Party"
       ],
-      "bio": "Gifted theorist and former ally; still politically beaten but remains part of the extended circle during cultural gatherings."
+      "bio": "Gifted theorist, painter, and charmer once close to both Stalin and Nadya. By chapter 2 he has been politically beaten by Stalin but still remains emotionally significant in their circle."
     },
     {
       "id": "Trotsky",
@@ -130,7 +130,7 @@
       "faction": "politburo_core",
       "centrality": 5,
       "nicknames": [],
-      "bio": "Veteran Bolshevik involved in factional politics; still present but no longer a central player."
+      "bio": "Veteran Bolshevik who becomes central to the alliance politics that follow Lenin's illness. By chapter 2 he is part of the factional maneuvering around Stalin and Trotsky."
     },
     {
       "id": "Zinoviev",
@@ -246,7 +246,7 @@
       "nicknames": [
         "Yasha"
       ],
-      "bio": "Stalin's elder son; continues living within the Kremlin household."
+      "bio": "Stalin's elder son from the first marriage. By the time of the prologue he is back in the Kremlin household after an unsettled youth."
     },
     {
       "id": "Vasily_Stalin",
@@ -275,7 +275,7 @@
       "faction": "family",
       "centrality": 3,
       "nicknames": [],
-      "bio": "Nadya's sister and family holdout across the Stalin household changes."
+      "bio": "Nadya's sister, present in family scenes from the Revolution to the last evening in the prologue."
     },
     {
       "id": "Vissarion_Djugashvili",
@@ -313,7 +313,7 @@
       "faction": "family",
       "centrality": 4,
       "nicknames": [],
-      "bio": "Nadya's brother, Red Army officer, sometimes present at family gatherings."
+      "bio": "Nadya's brother, working for the Red Army and often returning with gifts from abroad. The dress and pistol tied to the prologue both come through him."
     },
     {
       "id": "Sergei_Alliluyev",
@@ -340,7 +340,7 @@
       "faction": "family",
       "centrality": 3,
       "nicknames": [],
-      "bio": "Nadya's brother who once questioned Stalin in 1917 and later worked in his Commissariat."
+      "bio": "Nadya's brother who questions Stalin in 1917, works in his Commissariat, and later goes with him to Tsaritsyn."
     },
     {
       "id": "Alexander_Yegorov",
@@ -358,7 +358,7 @@
       "faction": "politburo_family",
       "centrality": 3,
       "nicknames": [],
-      "bio": "Actress and Alexander Yegorov's wife; remembered for her role in the prologue quarrel."
+      "bio": "Glamorous actress and wife of Alexander Yegorov. Stalin's flirtation with her helps trigger Nadya's anger during the prologue."
     },
     {
       "id": "Carolina_Til",
@@ -387,7 +387,7 @@
       "nicknames": [
         "Alyosha"
       ],
-      "bio": "Stalin's Georgian brother-in-law and banker; part of the domestic safety-net."
+      "bio": "Kato's brother, an old Georgian Bolshevik from the same seminary world as Stalin. By chapter 2 he belongs to the extended Svanidze-Alliluyev family network that still gives Stalin a Georgian domestic refuge."
     },
     {
       "id": "Maria_Svanidze",
@@ -414,7 +414,7 @@
       "faction": "nkvd",
       "centrality": 4,
       "nicknames": [],
-      "bio": "Security chief present during the prologue's aftermath."
+      "bio": "Former Budapest Opera barber turned security chief in Stalin's entourage. On the night of the prologue he is one of the first men the frightened household turns to."
     },
     {
       "id": "Nikolai_Vlasik",
@@ -423,7 +423,7 @@
       "faction": "nkvd",
       "centrality": 4,
       "nicknames": [],
-      "bio": "Bodyguard whose memories frame the final hours before Nadya's death."
+      "bio": "One of the guards shadowing Stalin's movements. In the prologue's aftermath his recollections help map the last hours before Nadya's death."
     },
     {
       "id": "Yevgenia_Alliluyeva",
@@ -452,37 +452,7 @@
       "faction": "politburo_family",
       "centrality": 5,
       "nicknames": [],
-      "bio": "Andreyev's wife, close to Nadya; their friendship includes shared studies and tram rides."
-    },
-    {
-      "id": "Beria",
-      "label": "Lavrentiy Beria",
-      "title": "Transcaucasus GPU chief",
-      "faction": "nkvd",
-      "centrality": 7,
-      "nicknames": [
-        "The Snake"
-      ],
-      "bio": "Cunning and ruthlessly ambitious Georgian who heads the GPU in Transcaucasia. He cultivates Stalin's favour during holidays on the Black Sea, positioning himself as an indispensable Georgian loyalist in the security apparatus."
-    },
-    {
-      "id": "Lakoba",
-      "label": "Nestor Lakoba",
-      "title": "Abkhazian Party boss",
-      "faction": "georgian_network",
-      "centrality": 3,
-      "bio": "Gracious and charming ruler of Abkhazia who hosts Stalin and the Politburo at his summer residence. A trusted regional figure who makes the Caucasus holidays both comfortable and politically useful for his guests."
-    },
-    {
-      "id": "Gorky",
-      "label": "Maxim Gorky",
-      "title": "Russia's leading novelist and literary figurehead",
-      "faction": "cultural",
-      "centrality": 4,
-      "nicknames": [
-        "Alexei Peshkov"
-      ],
-      "bio": "Russia's most celebrated living writer, summoned back from Italian exile to serve as the regime's cultural ornament. Stalin courts him personally, while Yagoda manages his household and monitors his visitors."
+      "bio": "Andreyev's wife and one of Nadya's closest companions. She studies with Nadya and shares the same tram rides, gossip, and domestic-political overlap of chapter 2."
     }
   ],
   "links": [
@@ -947,48 +917,6 @@
       "type": "friend_of",
       "weight": 5,
       "description": "Part of Nadya's closest circle among the Kremlin wives."
-    },
-    {
-      "source": "Beria",
-      "target": "Stalin",
-      "type": "subordinate",
-      "weight": 7,
-      "description": "GPU chief in Transcaucasia reporting to and serving Stalin's security needs."
-    },
-    {
-      "source": "Beria",
-      "target": "Lakoba",
-      "type": "rival",
-      "weight": 5,
-      "description": "Beria systematically undermines Lakoba's position in Abkhazia, coveting his power."
-    },
-    {
-      "source": "Lakoba",
-      "target": "Stalin",
-      "type": "ally",
-      "weight": 5,
-      "description": "Lakoba provides generous hospitality to Stalin and his entourage during Caucasus holidays."
-    },
-    {
-      "source": "Stalin",
-      "target": "Beria",
-      "type": "patron_of",
-      "weight": 6,
-      "description": "Stalin cultivates Beria as a useful Georgian enforcer and future security chief."
-    },
-    {
-      "source": "Gorky",
-      "target": "Stalin",
-      "type": "ally",
-      "weight": 5,
-      "description": "Gorky provides the regime with literary prestige, publicly endorsing Stalin's programme."
-    },
-    {
-      "source": "Yagoda",
-      "target": "Gorky",
-      "type": "patron_of",
-      "weight": 5,
-      "description": "Yagoda manages Gorky's household staff, guests, and effectively controls his environment."
     }
   ]
 }

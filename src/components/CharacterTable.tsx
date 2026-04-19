@@ -21,6 +21,26 @@ const MAX_PROPER_NOUNS_DISPLAY = 180;
 const PROPER_NOUN_REGEX =
   /\b(?:[A-Z]{2,}|[A-Z][A-Za-zÀ-ÖØ-öø-ÿ’'-]*)(?:\s+(?:[A-Z]{2,}|[A-Z][A-Za-zÀ-ÖØ-öø-ÿ’'-]*))*/g;
 
+/**
+ * Sentence boundary heuristic: split on ., !, ? followed by whitespace (optionally
+ * closing quotes/brackets). This lets us skip the first word of each sentence,
+ * which is capitalised for grammatical reasons rather than as a proper noun.
+ */
+const SENTENCE_SPLIT_RE = /[.!?]+["']?\s+/g;
+
+/**
+ * Common English words that appear at sentence-start and should not be counted
+ * as proper nouns even if they happen to be capitalised in mid-sentence proper
+ * noun searches.
+ */
+const STOP_COMMON_WORDS = new Set([
+  "the","a","an","in","on","at","by","for","with","from","to","and","or","but",
+  "if","when","while","after","before","since","because","however","therefore",
+  "thus","meanwhile","today","yesterday","tomorrow","he","she","it","they","we",
+  "you","i","your","our","my","his","her","their","its","this","that","these",
+  "those","there","here","where","why","how","what","which","who","whom","whose",
+]);
+
 function toArcSummary(
   points: CharacterArcPoint[] | undefined,
   activeChapterLabel: string,
@@ -90,33 +110,51 @@ export default function CharacterTable({
     );
   }, [nodes, searchQuery]);
 
-  const properNounRows = useMemo(() => {
-    if (!debugProperNouns) return [];
-    const counts = new Map<string, number>();
-
-    const consume = (text: string) => {
-      // Skip strings with no cased characters (digits, symbols, spaces) — nothing to match
-      if (!text || text.toLowerCase() === text.toUpperCase()) return;
-      const matches = text.match(PROPER_NOUN_REGEX);
-      if (!matches) return;
-      for (const match of matches) {
-        const noun = match.trim();
-        counts.set(noun, (counts.get(noun) ?? 0) + 1);
-      }
-    };
-
-    for (const node of nodes) {
-      consume(node.label);
-      consume(node.title);
-      consume(node.bio);
-      for (const nickname of node.nicknames ?? []) consume(nickname);
-    }
-    for (const link of links) consume(link.description);
-
-    return [...counts.entries()]
-      .map(([noun, count]) => ({ noun, count }))
-      .sort((a, b) => b.count - a.count || a.noun.localeCompare(b.noun));
-  }, [debugProperNouns, nodes, links]);
+   const properNounRows = useMemo(() => {
+     if (!debugProperNouns) return [];
+     const counts = new Map<string, number>();
+ 
+     const add = (noun: string) => {
+       const trimmed = noun.trim();
+       if (!trimmed) return;
+       counts.set(trimmed, (counts.get(trimmed) ?? 0) + 1);
+     };
+ 
+     // 1. Direct node fields are always proper nouns: label, title, nicknames.
+     for (const node of nodes) {
+       add(node.label);
+       add(node.title);
+       for (const nick of node.nicknames ?? []) add(nick);
+     }
+ 
+     // 2. Free-text fields (bio, link.description) with sentence-start filtering.
+     const processText = (text: string) => {
+       if (!text) return;
+       // Split into sentences; the regex captures the sentence boundary punctuation + trailing space.
+       const sentences = text.split(SENTENCE_SPLIT_RE);
+       for (const sentence of sentences) {
+         let matchIdx = 0;
+         const matches = sentence.matchAll(PROPER_NOUN_REGEX);
+         for (const m of matches) {
+           const noun = m[0];
+           // Skip first match if it's a common function word (sentence-start noise).
+           if (matchIdx === 0 && STOP_COMMON_WORDS.has(noun.toLowerCase())) {
+             matchIdx += 1;
+             continue;
+           }
+           matchIdx += 1;
+           add(noun);
+         }
+       }
+     };
+ 
+     for (const node of nodes) processText(node.bio);
+     for (const link of links) processText(link.description);
+ 
+     return [...counts.entries()]
+       .map(([noun, count]) => ({ noun, count }))
+       .sort((a, b) => b.count - a.count || a.noun.localeCompare(b.noun));
+   }, [debugProperNouns, nodes, links]);
 
   return (
     <section className={styles.shell} aria-label="Character table">

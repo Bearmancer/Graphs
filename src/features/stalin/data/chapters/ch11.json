@@ -10,7 +10,7 @@
         "Soso",
         "Koba"
       ],
-      "bio": "Georgian Bolshevik who rises from underground organiser and Civil War commissar to General Secretary. By the end of chapter 2 he stands at the center of an intimate Kremlin court and a strained marriage to Nadya."
+      "bio": "General Secretary now deeply shaken by Kirov's murder. He personally leads the investigation to Leningrad and swiftly crafts emergency laws—the December 1st decree—that unleash a new era of terror."
     },
     {
       "id": "Molotov",
@@ -52,7 +52,7 @@
       "faction": "military",
       "centrality": 7,
       "nicknames": [],
-      "bio": "Genial Defence Commissar and old Tsaritsyn comrade. His apartment hosts the Revolution anniversary dinner that frames the prologue."
+      "bio": "Defence Commissar and loyalist; accompanies Stalin to Leningrad after the assassination."
     },
     {
       "id": "Ekaterina_Voroshilova",
@@ -101,7 +101,7 @@
       "nicknames": [
         "darling of the Party"
       ],
-      "bio": "Gifted theorist, painter, and charmer once close to both Stalin and Nadya. By chapter 2 he has been politically beaten by Stalin but still remains emotionally significant in their circle."
+      "bio": "Former ally still within the Party fold; his own fate now uncertain in the wake of Kirov's death."
     },
     {
       "id": "Trotsky",
@@ -119,7 +119,7 @@
       "faction": "politburo_core",
       "centrality": 5,
       "nicknames": [],
-      "bio": "Veteran Bolshevik who becomes central to the alliance politics that follow Lenin's illness. By chapter 2 he is part of the factional maneuvering around Stalin and Trotsky."
+      "bio": "Former oppositionist, still around but no longer relevant to centre-stage events."
     },
     {
       "id": "Zinoviev",
@@ -235,7 +235,7 @@
       "nicknames": [
         "Yasha"
       ],
-      "bio": "Stalin's elder son from the first marriage. By the time of the prologue he is back in the Kremlin household after an unsettled youth."
+      "bio": "Stalin's elder son; continues in the Kremlin household."
     },
     {
       "id": "Vasily_Stalin",
@@ -264,7 +264,7 @@
       "faction": "family",
       "centrality": 3,
       "nicknames": [],
-      "bio": "Nadya's sister, present in family scenes from the Revolution to the last evening in the prologue."
+      "bio": "Nadya's sister; part of the household that has absorbed Stalin after Nadya's death and now after Kirov's murder."
     },
     {
       "id": "Vissarion_Djugashvili",
@@ -302,7 +302,7 @@
       "faction": "family",
       "centrality": 4,
       "nicknames": [],
-      "bio": "Nadya's brother, working for the Red Army and often returning with gifts from abroad. The dress and pistol tied to the prologue both come through him."
+      "bio": "Nadya's brother and Red Army officer; a loyal presence during this crisis."
     },
     {
       "id": "Sergei_Alliluyev",
@@ -329,7 +329,7 @@
       "faction": "family",
       "centrality": 3,
       "nicknames": [],
-      "bio": "Nadya's brother who questions Stalin in 1917, works in his Commissariat, and later goes with him to Tsaritsyn."
+      "bio": "Nadya's brother with deep roots in Stalin's earlier history; present in the extended court."
     },
     {
       "id": "Alexander_Yegorov",
@@ -347,7 +347,7 @@
       "faction": "politburo_family",
       "centrality": 3,
       "nicknames": [],
-      "bio": "Glamorous actress and wife of Alexander Yegorov. Stalin's flirtation with her helps trigger Nadya's anger during the prologue."
+      "bio": "Actress and wife of Yegorov; a peripheral figure in the Kremlin social world."
     },
     {
       "id": "Carolina_Til",
@@ -376,7 +376,7 @@
       "nicknames": [
         "Alyosha"
       ],
-      "bio": "Kato's brother, an old Georgian Bolshevik from the same seminary world as Stalin. By chapter 2 he belongs to the extended Svanidze-Alliluyev family network that still gives Stalin a Georgian domestic refuge."
+      "bio": "Banker brother-in-law; part of the in-law network that still buffers Stalin."
     },
     {
       "id": "Maria_Svanidze",
@@ -403,7 +403,7 @@
       "faction": "nkvd",
       "centrality": 4,
       "nicknames": [],
-      "bio": "Former Budapest Opera barber turned security chief in Stalin's entourage. On the night of the prologue he is one of the first men the frightened household turns to."
+      "bio": "Security chief who handled the prologue crisis and remains."
     },
     {
       "id": "Nikolai_Vlasik",
@@ -412,7 +412,7 @@
       "faction": "nkvd",
       "centrality": 4,
       "nicknames": [],
-      "bio": "One of the guards shadowing Stalin's movements. In the prologue's aftermath his recollections help map the last hours before Nadya's death."
+      "bio": "Bodyguard and trusted protector through many crises, including the immediate aftermath of Kirov's murder."
     },
     {
       "id": "Yevgenia_Alliluyeva",
@@ -441,7 +441,7 @@
       "faction": "politburo_family",
       "centrality": 5,
       "nicknames": [],
-      "bio": "Andreyev's wife and one of Nadya's closest companions. She studies with Nadya and shares the same tram rides, gossip, and domestic-political overlap of chapter 2."
+      "bio": "Deputy textiles official and Nadya's close friend; now part of the widowed Stalin's personal entourage."
     },
     {
       "id": "Beria",
