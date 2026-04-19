@@ -10,7 +10,7 @@
         "Soso",
         "Koba"
       ],
-      "bio": "General Secretary increasingly preoccupied with literature and culture. He intervenes in Mandelstam's case (\"Preserve but isolate\"), telephones Pasternak, and creates the Union of Soviet Writers."
+      "bio": "General Secretary at the height of his pre-purge power, planning the Congress of Victors to crown the triumphs of collectivisation and industrialisation. He takes Beria under his wing."
     },
     {
       "id": "Molotov",
@@ -115,17 +115,6 @@
       "bio": "Hero of the Civil War and creator of the Red Army. His struggle with Stalin over power and method shapes the political background of chapter 1."
     },
     {
-      "id": "Kirov",
-      "label": "Sergei Kirov",
-      "title": "Leningrad Party First Secretary",
-      "faction": "politburo_core",
-      "centrality": 6,
-      "nicknames": [
-        "Mironich"
-      ],
-      "bio": "Leningrad Party First Secretary, Stalin's favourite and the court's most beloved figure. He camps and hunts with Sergo but finds holidays with Stalin exhausting."
-    },
-    {
       "id": "Yagoda",
       "label": "Genrikh Yagoda",
       "title": "Deputy GPU chief",
@@ -189,27 +178,6 @@
       "centrality": 5,
       "nicknames": [],
       "bio": "Andreyev's wife and one of Nadya's closest companions. She studies with Nadya and shares the same tram rides, gossip, and domestic-political overlap of chapter 2."
-    },
-    {
-      "id": "Zhdanov",
-      "label": "Andrei Zhdanov",
-      "title": "Gorky regional boss and Fourth Secretary",
-      "faction": "politburo_core",
-      "centrality": 5,
-      "nicknames": [],
-      "bio": "Gorky regional boss promoted to Fourth Secretary, a priggish ideologue personally devoted to Stalin."
-    },
-    {
-      "id": "Yezhov",
-      "label": "Nikolai Yezhov",
-      "title": "Central Committee Secretary and rising NKVD figure",
-      "faction": "nkvd",
-      "centrality": 5,
-      "nicknames": [
-        "The Dwarf",
-        "Blackberry"
-      ],
-      "bio": "Head of the Central Committee's Personnel Department. Small and fanatically loyal, he rises rapidly through the party apparatus."
     },
     {
       "id": "Rykov",
@@ -899,34 +867,6 @@
       "type": "ally",
       "weight": 4,
       "description": "Yagoda manages Gorky's household, spending increasing time with the writer and his family."
-    },
-    {
-      "source": "Kirov",
-      "target": "Stalin",
-      "type": "ally",
-      "weight": 7,
-      "description": "Kirov is Stalin's favourite among the magnates, sharing holidays and political trust."
-    },
-    {
-      "source": "Yezhov",
-      "target": "Kirov",
-      "type": "investigated_by",
-      "weight": 3,
-      "description": "Yezhov travels to Leningrad with Stalin to investigate Kirov's assassination."
-    },
-    {
-      "source": "Zhdanov",
-      "target": "Stalin",
-      "type": "subordinate",
-      "weight": 5,
-      "description": "Zhdanov is groomed as Stalin's ideological lieutenant and eventual successor to Kirov in Leningrad."
-    },
-    {
-      "source": "Yezhov",
-      "target": "Stalin",
-      "type": "subordinate",
-      "weight": 5,
-      "description": "Yezhov serves Stalin with fanatical loyalty, rising rapidly through the Central Committee apparatus."
     }
   ]
 }
