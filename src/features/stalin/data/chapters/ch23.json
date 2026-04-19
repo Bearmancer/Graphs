@@ -10,7 +10,7 @@
         "Soso",
         "Koba"
       ],
-      "bio": "Georgian Bolshevik who rises from underground organiser and Civil War commissar to General Secretary. By the end of chapter 2 he stands at the center of an intimate Kremlin court and a strained marriage to Nadya."
+      "bio": "General Secretary whose social life during the Terror continues—dinners, movies, dacha weekends—while the bodies pile up. The wives and children of the magnates create a thin veneer of domesticity."
     },
     {
       "id": "Molotov",
@@ -21,7 +21,7 @@
       "nicknames": [
         "Iron-Arse"
       ],
-      "bio": "Disciplined, severe, and tireless, Molotov is the ally who works closest to Stalin. He and Polina live inside the Kremlin village and move in the same domestic circle as the Stalins."
+      "bio": "Premier who continues as Stalin's closest working partner, rowing with the dead Sergo's industrial apparatus over control of factories."
     },
     {
       "id": "Polina_Molotova",
@@ -32,7 +32,7 @@
       "nicknames": [
         "Zhemchuzhina"
       ],
-      "bio": "Bold and ambitious Bolshevik, admired by her husband and feared by some others. She is Nadya's closest friend and the woman who follows her out into the night after the quarrel."
+      "bio": "Nadya's old friend, now navigating the Terror as Molotov's wife. She shelters friends when she can but cannot protect them all."
     },
     {
       "id": "Kaganovich",
@@ -43,7 +43,7 @@
       "nicknames": [
         "Iron Lazar"
       ],
-      "bio": "Boisterous, hard-driving deputy in Stalin's inner circle. He is one of the magnates who drops in and out of the Kremlin apartments like family."
+      "bio": "Stalin's deputy left behind to run the country while Stalin travels to Leningrad."
     },
     {
       "id": "Voroshilov",
@@ -52,16 +52,27 @@
       "faction": "military",
       "centrality": 7,
       "nicknames": [],
-      "bio": "Genial Defence Commissar and old Tsaritsyn comrade. His apartment hosts the Revolution anniversary dinner that frames the prologue."
+      "bio": "Defence Commissar whose military world is being reshaped by the political trials now consuming the senior officer corps."
     },
     {
-      "id": "Ekaterina_Voroshilova",
-      "label": "Ekaterina Voroshilova",
-      "title": "Voroshilov's wife",
-      "faction": "politburo_family",
-      "centrality": 3,
+      "id": "Lenin",
+      "label": "Vladimir Lenin",
+      "title": "Bolshevik leader",
+      "faction": "politburo_core",
+      "centrality": 7,
       "nicknames": [],
-      "bio": "Part of the tight social world of Kremlin wives. Her diary remembers the leadership circle as simple, friendly, and unusually intimate."
+      "bio": "Founder of the Bolshevik state and Stalin's political hero. He relies on Stalin in crisis, then grows alarmed by Stalin's accumulating power."
+    },
+    {
+      "id": "Beria",
+      "label": "Lavrentiy Beria",
+      "title": "Transcaucasus GPU chief",
+      "faction": "nkvd",
+      "centrality": 7,
+      "nicknames": [
+        "The Snake"
+      ],
+      "bio": "Transcaucasian potentate who has outmanoeuvred rivals and now enters the highest security circles. Stalin trusts him as a fellow Georgian who gets results."
     },
     {
       "id": "Mikoyan",
@@ -73,13 +84,65 @@
       "bio": "Shrewd Armenian Bolshevik who simply walks across the courtyard when he needs Stalin. He is one of the most sociable figures in the Kremlin family."
     },
     {
-      "id": "Trotsky",
-      "label": "Leon Trotsky",
-      "title": "War Commissar and chief rival",
-      "faction": "enemy_purged",
+      "id": "Kirov",
+      "label": "Sergei Kirov",
+      "title": "Leningrad Party First Secretary",
+      "faction": "politburo_core",
       "centrality": 6,
+      "nicknames": [
+        "Mironich"
+      ],
+      "bio": "Leningrad Party First Secretary, Stalin's favourite and the court's most beloved figure. He camps and hunts with Sergo but finds holidays with Stalin exhausting."
+    },
+    {
+      "id": "Yenukidze",
+      "label": "Abel Yenukidze",
+      "title": "Kremlin administrator and Nadya's godfather",
+      "faction": "georgian_network",
+      "centrality": 5,
+      "nicknames": [
+        "Uncle Abel"
+      ],
+      "bio": "Kremlin administrator now implicated in the Yenukidze Case, his long-standing position crumbling as the terror reaches into the household."
+    },
+    {
+      "id": "Andrei_Andreyev",
+      "label": "Andrei Andreyev",
+      "title": "Central Committee secretary and Kremlin magnate",
+      "faction": "politburo_core",
+      "centrality": 5,
       "nicknames": [],
-      "bio": "Hero of the Civil War and creator of the Red Army. His struggle with Stalin over power and method shapes the political background of chapter 1."
+      "bio": "Rising party leader in the Kremlin household world. Stalin drops by the Andreyevs' apartment informally, showing how closely politics and domestic life overlap."
+    },
+    {
+      "id": "Dora_Khazan",
+      "label": "Dora Khazan",
+      "title": "Deputy textiles official and Nadya's close friend",
+      "faction": "politburo_family",
+      "centrality": 5,
+      "nicknames": [],
+      "bio": "Andreyev's wife and one of Nadya's closest companions. She studies with Nadya and shares the same tram rides, gossip, and domestic-political overlap of chapter 2."
+    },
+    {
+      "id": "Zhdanov",
+      "label": "Andrei Zhdanov",
+      "title": "Gorky regional boss and Fourth Secretary",
+      "faction": "politburo_core",
+      "centrality": 5,
+      "nicknames": [],
+      "bio": "Gorky regional boss promoted to Fourth Secretary, a priggish ideologue personally devoted to Stalin."
+    },
+    {
+      "id": "Yezhov",
+      "label": "Nikolai Yezhov",
+      "title": "Central Committee Secretary and rising NKVD figure",
+      "faction": "nkvd",
+      "centrality": 5,
+      "nicknames": [
+        "The Dwarf",
+        "Blackberry"
+      ],
+      "bio": "At work in the mornings signing execution orders, at play in the evenings drinking with the magnates—a figure of menace and self-destruction."
     },
     {
       "id": "Krupskaya",
@@ -158,33 +221,6 @@
       "bio": "Young daughter of Stalin and Nadya, present in the letters, routines, and domestic memories of the Kremlin home."
     },
     {
-      "id": "Anna_Redens",
-      "label": "Anna Alliluyeva Redens",
-      "title": "Nadya's sister",
-      "faction": "family",
-      "centrality": 3,
-      "nicknames": [],
-      "bio": "Nadya's sister, present in family scenes from the Revolution to the last evening in the prologue."
-    },
-    {
-      "id": "Lenin",
-      "label": "Vladimir Lenin",
-      "title": "Bolshevik leader",
-      "faction": "politburo_core",
-      "centrality": 7,
-      "nicknames": [],
-      "bio": "Founder of the Bolshevik state and Stalin's political hero. He relies on Stalin in crisis, then grows alarmed by Stalin's accumulating power."
-    },
-    {
-      "id": "Artyom_Sergeev",
-      "label": "Artyom Sergeev",
-      "title": "Adopted son in the Stalin household",
-      "faction": "family",
-      "centrality": 3,
-      "nicknames": [],
-      "bio": "Adopted son who moves through the Stalin household as one of the children. He belongs to the everyday family world around Nadya."
-    },
-    {
       "id": "Pavel_Alliluyev",
       "label": "Pavel Alliluyev",
       "title": "Red Army officer",
@@ -212,6 +248,102 @@
       "bio": "Strong-willed mother at the center of the Alliluyev household. Her home links family life, revolutionary politics, and the emotional world around Nadya."
     },
     {
+      "id": "Mikhail_Tukhachevsky",
+      "label": "Mikhail Tukhachevsky",
+      "title": "Western Front commander",
+      "faction": "military",
+      "centrality": 4,
+      "nicknames": [],
+      "bio": "Brilliant commander on the Western Front in 1920. Stalin's refusal to release cavalry to him becomes one of the major quarrels of the Polish campaign."
+    },
+    {
+      "id": "Alexander_Svanidze",
+      "label": "Alexander \"Alyosha\" Svanidze",
+      "title": "Banking official and Stalin's brother-in-law",
+      "faction": "georgian_network",
+      "centrality": 4,
+      "nicknames": [
+        "Alyosha"
+      ],
+      "bio": "Stalin's brother-in-law, brother of his first wife Kato. A Georgian dandy who speaks French and German, part of the loving sextet of relatives surrounding the widower."
+    },
+    {
+      "id": "Stanislas_Redens",
+      "label": "Stanislas Redens",
+      "title": "Secret policeman and Anna's husband",
+      "faction": "nkvd",
+      "centrality": 4,
+      "nicknames": [],
+      "bio": "Secret policeman and Anna's husband, recently appointed Moscow GPU boss. A handsome Pole previously outmanoeuvred by Beria in Georgia."
+    },
+    {
+      "id": "Karl_Pauker",
+      "label": "Karl Pauker",
+      "title": "Security chief in Stalin's entourage",
+      "faction": "nkvd",
+      "centrality": 4,
+      "nicknames": [],
+      "bio": "Security chief who serves on the Funeral Commission, arranging the elaborate Bolshevik funeral ritual for Nadya."
+    },
+    {
+      "id": "Nikolai_Vlasik",
+      "label": "Nikolai Vlasik",
+      "title": "Bodyguard in Stalin's protective ring",
+      "faction": "nkvd",
+      "centrality": 4,
+      "nicknames": [],
+      "bio": "Stalin's devoted bodyguard, a brawny peasant who has guarded the Vozhd exclusively since 1927."
+    },
+    {
+      "id": "Gorky",
+      "label": "Maxim Gorky",
+      "title": "Russia's leading novelist and literary figurehead",
+      "faction": "cultural",
+      "centrality": 4,
+      "nicknames": [
+        "Alexei Peshkov"
+      ],
+      "bio": "Russia's most celebrated living writer, lured back from Italian exile by Stalin's flattery and generous funding. He lives in a GPU-supervised mansion, serves as the regime's literary ornament, and champions young writers while endorsing the harshest aspects of Soviet policy."
+    },
+    {
+      "id": "Ekaterina_Voroshilova",
+      "label": "Ekaterina Voroshilova",
+      "title": "Voroshilov's wife",
+      "faction": "politburo_family",
+      "centrality": 3,
+      "nicknames": [],
+      "bio": "Part of the tight social world of Kremlin wives. Her diary remembers the leadership circle as simple, friendly, and unusually intimate."
+    },
+    {
+      "id": "Kato_Svanidze",
+      "label": "Kato Svanidze",
+      "title": "Stalin's first wife",
+      "faction": "family",
+      "centrality": 3,
+      "nicknames": [
+        "Kato"
+      ],
+      "bio": "Gentle Georgian from another Bolshevik family and Stalin's first wife. Their brief marriage gives Stalin his first son, Yakov."
+    },
+    {
+      "id": "Anna_Redens",
+      "label": "Anna Alliluyeva Redens",
+      "title": "Nadya's sister",
+      "faction": "family",
+      "centrality": 3,
+      "nicknames": [],
+      "bio": "Nadya's sister, now a constant companion to the widowed Stalin alongside her husband Stanislas Redens, the new Moscow GPU boss."
+    },
+    {
+      "id": "Artyom_Sergeev",
+      "label": "Artyom Sergeev",
+      "title": "Adopted son in the Stalin household",
+      "faction": "family",
+      "centrality": 3,
+      "nicknames": [],
+      "bio": "Adopted son who moves through the Stalin household as one of the children. He belongs to the everyday family world around Nadya."
+    },
+    {
       "id": "Fyodor_Alliluyev",
       "label": "Fyodor Alliluyev",
       "title": "Bolshevik aide and Nadya's brother",
@@ -219,6 +351,24 @@
       "centrality": 3,
       "nicknames": [],
       "bio": "Nadya's brother who questions Stalin in 1917, works in his Commissariat, and later goes with him to Tsaritsyn."
+    },
+    {
+      "id": "Alexander_Yegorov",
+      "label": "Alexander Yegorov",
+      "title": "Red Army commander",
+      "faction": "military",
+      "centrality": 3,
+      "nicknames": [],
+      "bio": "Red Army commander who served with Stalin in the Polish campaign. His family appears in the social world of the 1932 dinner."
+    },
+    {
+      "id": "Galina_Yegorova",
+      "label": "Galina Yegorova",
+      "title": "Film actress and Yegorov's wife",
+      "faction": "politburo_family",
+      "centrality": 3,
+      "nicknames": [],
+      "bio": "Glamorous actress and wife of Alexander Yegorov. Stalin's flirtation with her helps trigger Nadya's anger during the prologue."
     },
     {
       "id": "Carolina_Til",
@@ -230,42 +380,13 @@
       "bio": "Housekeeper in Stalin and Nadya's Kremlin apartment. She discovers Nadya the next morning and raises the alarm."
     },
     {
-      "id": "Alexander_Svanidze",
-      "label": "Alexander \"Alyosha\" Svanidze",
-      "title": "Banking official and Stalin's brother-in-law",
-      "faction": "georgian_network",
-      "centrality": 4,
-      "nicknames": [
-        "Alyosha"
-      ],
-      "bio": "Kato's brother, an old Georgian Bolshevik from the same seminary world as Stalin. By chapter 2 he belongs to the extended Svanidze-Alliluyev family network that still gives Stalin a Georgian domestic refuge."
-    },
-    {
       "id": "Maria_Svanidze",
       "label": "Maria Svanidze",
       "title": "Opera singer in Stalin's in-law circle",
       "faction": "family",
       "centrality": 3,
       "nicknames": [],
-      "bio": "Jewish Georgian opera singer married to Alyosha Svanidze. She belongs to the intimate in-law circle around Stalin and Nadya during the Kremlin-family years."
-    },
-    {
-      "id": "Stanislas_Redens",
-      "label": "Stanislas Redens",
-      "title": "Secret policeman and Anna's husband",
-      "faction": "nkvd",
-      "centrality": 4,
-      "nicknames": [],
-      "bio": "Anna Alliluyeva's husband and Nadya's brother-in-law. He links the Alliluyev family to the security world that increasingly surrounds Stalin's household."
-    },
-    {
-      "id": "Nikolai_Vlasik",
-      "label": "Nikolai Vlasik",
-      "title": "Bodyguard in Stalin's protective ring",
-      "faction": "nkvd",
-      "centrality": 4,
-      "nicknames": [],
-      "bio": "One of the guards shadowing Stalin's movements. In the prologue's aftermath his recollections help map the last hours before Nadya's death."
+      "bio": "Diarist who records the Politburo's grief at Kirov's funeral, hearing the \"footsteps of tough and resolute eagles.\""
     },
     {
       "id": "Yevgenia_Alliluyeva",
@@ -276,64 +397,27 @@
       "nicknames": [
         "Zhenya"
       ],
-      "bio": "Pavel Alliluyev's glamorous wife, known as Zhenya. She arrives with Pavel in the immediate aftermath of Nadya's death and belongs to the close family circle."
+      "bio": "Pavel's wife who watches the casket disappear into the furnace at the crematorium."
     },
     {
-      "id": "Andrei_Andreyev",
-      "label": "Andrei Andreyev",
-      "title": "Central Committee secretary and Kremlin magnate",
-      "faction": "politburo_core",
-      "centrality": 5,
+      "id": "Lakoba",
+      "label": "Nestor Lakoba",
+      "title": "Abkhazian Party boss",
+      "faction": "georgian_network",
+      "centrality": 3,
       "nicknames": [],
-      "bio": "Rising party leader in the Kremlin household world. Stalin drops by the Andreyevs' apartment informally, showing how closely politics and domestic life overlap."
+      "bio": "Gracious and charming ruler of Abkhazia who hosts Stalin and the Politburo at his summer residence. A trusted regional figure who makes the Caucasus holidays both comfortable and politically useful for his guests."
     },
     {
-      "id": "Dora_Khazan",
-      "label": "Dora Khazan",
-      "title": "Deputy textiles official and Nadya's close friend",
-      "faction": "politburo_family",
-      "centrality": 5,
-      "nicknames": [],
-      "bio": "Andreyev's wife and one of Nadya's closest companions. She studies with Nadya and shares the same tram rides, gossip, and domestic-political overlap of chapter 2."
-    },
-    {
-      "id": "Beria",
-      "label": "Lavrentiy Beria",
-      "title": "Transcaucasus GPU chief",
-      "faction": "nkvd",
-      "centrality": 7,
+      "id": "Vissarion_Djugashvili",
+      "label": "Vissarion Djugashvili",
+      "title": "Stalin's father",
+      "faction": "family",
+      "centrality": 2,
       "nicknames": [
-        "The Snake"
+        "Beso"
       ],
-      "bio": "Cunning and ruthlessly ambitious Georgian who heads the GPU in Transcaucasia. He cultivates Stalin's favour during holidays on the Black Sea, positioning himself as an indispensable Georgian loyalist in the security apparatus."
-    },
-    {
-      "id": "Zhdanov",
-      "label": "Andrei Zhdanov",
-      "title": "Gorky regional boss and Fourth Secretary",
-      "faction": "politburo_core",
-      "centrality": 5,
-      "bio": "Cultivated party boss promoted to Fourth Secretary after Kirov's murder. Stalin grooms him as an ideological enforcer and key lieutenant."
-    },
-    {
-      "id": "Yezhov",
-      "label": "Nikolai Yezhov",
-      "title": "Central Committee Secretary and rising NKVD figure",
-      "faction": "nkvd",
-      "centrality": 5,
-      "nicknames": [
-        "The Dwarf",
-        "Blackberry"
-      ],
-      "bio": "Small and fanatically loyal, Yezhov rises rapidly through the party apparatus. Stalin tasks him with investigating Kirov's assassination, accelerating his climb from Central Committee secretary toward the inner ring of the security apparatus."
-    },
-    {
-      "id": "Vyshinsky",
-      "label": "Andrei Vyshinsky",
-      "title": "Chief State Prosecutor",
-      "faction": "nkvd",
-      "centrality": 4,
-      "bio": "Thundering prosecutor who stages the show trials with theatrical ferocity, browbeating defendants into public confessions. A former Menshevik who overcomes his suspect past through slavish loyalty to Stalin."
+      "bio": "Cobbler father whose drinking and violence dominate Stalin's early home life."
     }
   ],
   "links": [
@@ -366,13 +450,6 @@
       "description": "Trusted colleague who moves easily in and out of Stalin's apartment."
     },
     {
-      "source": "Stalin",
-      "target": "Trotsky",
-      "type": "rival",
-      "weight": 8,
-      "description": "Civil War and succession rivalry defines one of Stalin's deepest grudges."
-    },
-    {
       "source": "Lenin",
       "target": "Krupskaya",
       "type": "married_to",
@@ -395,6 +472,13 @@
     },
     {
       "source": "Stalin",
+      "target": "Kato_Svanidze",
+      "type": "married_to",
+      "weight": 4,
+      "description": "Earlier marriage before Stalin's life with Nadya."
+    },
+    {
+      "source": "Stalin",
       "target": "Vasily_Stalin",
       "type": "father_of",
       "weight": 7,
@@ -413,6 +497,20 @@
       "type": "father_of",
       "weight": 6,
       "description": "Yakov is Stalin's son from the first marriage."
+    },
+    {
+      "source": "Yenukidze",
+      "target": "Stalin",
+      "type": "colleague_of",
+      "weight": 5,
+      "description": "Old Bolshevik friend who oversees the Kremlin compound."
+    },
+    {
+      "source": "Vissarion_Djugashvili",
+      "target": "Stalin",
+      "type": "father_of",
+      "weight": 3,
+      "description": "His violent cobbler father."
     },
     {
       "source": "Molotov",
@@ -478,11 +576,39 @@
       "description": "The Alliluyev home is one of Stalin's early Bolshevik refuges."
     },
     {
+      "source": "Alexander_Yegorov",
+      "target": "Stalin",
+      "type": "colleague_of",
+      "weight": 4,
+      "description": "Served with Stalin in the Polish campaign."
+    },
+    {
+      "source": "Alexander_Yegorov",
+      "target": "Galina_Yegorova",
+      "type": "married_to",
+      "weight": 4,
+      "description": "Military couple in the Kremlin social orbit."
+    },
+    {
+      "source": "Mikhail_Tukhachevsky",
+      "target": "Stalin",
+      "type": "rival",
+      "weight": 5,
+      "description": "Clashed with Stalin over the transfer of cavalry in 1920."
+    },
+    {
       "source": "Stanislas_Redens",
       "target": "Anna_Redens",
       "type": "married_to",
       "weight": 4,
       "description": "Marriage connecting Nadya's sister to the security world."
+    },
+    {
+      "source": "Alexander_Svanidze",
+      "target": "Kato_Svanidze",
+      "type": "family_connection",
+      "weight": 4,
+      "description": "Kato is Alyosha's sister in the Svanidze family."
     },
     {
       "source": "Alexander_Svanidze",
@@ -506,11 +632,25 @@
       "description": "In-law and familiar presence in the wider household circle."
     },
     {
+      "source": "Karl_Pauker",
+      "target": "Stalin",
+      "type": "bodyguard_of",
+      "weight": 6,
+      "description": "Security chief responsible for Stalin's close protection."
+    },
+    {
       "source": "Nikolai_Vlasik",
       "target": "Stalin",
       "type": "bodyguard_of",
       "weight": 5,
       "description": "Bodyguard shadowing Stalin through the Kremlin and dachas."
+    },
+    {
+      "source": "Karl_Pauker",
+      "target": "Nikolai_Vlasik",
+      "type": "colleague_of",
+      "weight": 4,
+      "description": "Both belong to Stalin's intimate protective apparatus."
     },
     {
       "source": "Yevgenia_Alliluyeva",
@@ -542,9 +682,16 @@
     },
     {
       "source": "Beria",
+      "target": "Lakoba",
+      "type": "rival",
+      "weight": 4,
+      "description": "Beria systematically undermines Lakoba's position in Abkhazia, coveting his power."
+    },
+    {
+      "source": "Beria",
       "target": "Stalin",
       "type": "subordinate",
-      "weight": 7,
+      "weight": 6,
       "description": "GPU chief in Transcaucasia reporting to and serving Stalin's security needs."
     },
     {
@@ -555,39 +702,46 @@
       "description": "Stalin cultivates Beria as a useful Georgian enforcer and future security chief."
     },
     {
-      "source": "Yezhov",
+      "source": "Lakoba",
       "target": "Stalin",
-      "type": "subordinate",
+      "type": "ally",
+      "weight": 5,
+      "description": "Lakoba provides generous hospitality to Stalin and his entourage during Caucasus holidays."
+    },
+    {
+      "source": "Gorky",
+      "target": "Stalin",
+      "type": "ally",
+      "weight": 5,
+      "description": "Gorky serves as the regime's literary ornament, flattered and funded by Stalin."
+    },
+    {
+      "source": "Kirov",
+      "target": "Stalin",
+      "type": "ally",
       "weight": 7,
-      "description": "Fanatically devoted subordinate who carries out Stalin's most sensitive and violent assignments."
+      "description": "Kirov is Stalin's favourite among the magnates, sharing holidays and political trust."
+    },
+    {
+      "source": "Yezhov",
+      "target": "Kirov",
+      "type": "investigated_by",
+      "weight": 3,
+      "description": "Yezhov travels to Leningrad with Stalin to investigate Kirov's assassination."
     },
     {
       "source": "Zhdanov",
       "target": "Stalin",
       "type": "subordinate",
-      "weight": 6,
-      "description": "Loyal party secretary serving as Stalin's chosen enforcer of ideology and cultural discipline."
+      "weight": 5,
+      "description": "Zhdanov is groomed as Stalin's ideological lieutenant and eventual successor to Kirov in Leningrad."
     },
     {
-      "source": "Stalin",
-      "target": "Zhdanov",
-      "type": "patron_of",
-      "weight": 6,
-      "description": "Stalin picks Zhdanov to fill the void left by Kirov, elevating him to the inner circle."
-    },
-    {
-      "source": "Vyshinsky",
+      "source": "Yezhov",
       "target": "Stalin",
       "type": "subordinate",
-      "weight": 6,
-      "description": "Serves as Stalin's chief instrument in the show trials, performing scripts written by the Kremlin."
-    },
-    {
-      "source": "Vyshinsky",
-      "target": "Yezhov",
-      "type": "ally",
       "weight": 5,
-      "description": "Court prosecutor and secret police chief work in tandem to destroy the old Bolshevik guard."
+      "description": "Yezhov serves Stalin with fanatical loyalty, rising rapidly through the Central Committee apparatus."
     }
   ]
 }
