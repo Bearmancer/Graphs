@@ -15,9 +15,7 @@ export default function SettingsWheel({ settings, onChange, onReset }: Props) {
     onChange({ ...settings, ...patch });
   };
 
-  const uiMatch = SANS_FONTS.find((f) => f.value === settings.fontUI)
-    ? settings.fontUI
-    : "custom";
+  const uiMatch = SANS_FONTS.find((f) => f.value === settings.fontUI) ? settings.fontUI : "custom";
   const serifMatch = SERIF_FONTS.find((f) => f.value === settings.fontSerif)
     ? settings.fontSerif
     : "custom";
@@ -27,11 +25,7 @@ export default function SettingsWheel({ settings, onChange, onReset }: Props) {
 
   return (
     <div className={styles.wheel}>
-      <button
-        className={styles.button}
-        onClick={() => setOpen((v) => !v)}
-        aria-label="Settings"
-      >
+      <button className={styles.button} onClick={() => setOpen((v) => !v)} aria-label="Settings">
         ⚙️
       </button>
       {open && (
@@ -133,18 +127,14 @@ export default function SettingsWheel({ settings, onChange, onReset }: Props) {
           </div>
 
           <div className={styles.section}>
-            <div className={styles.label}>
-              Base font size (px) — scales all text
-            </div>
+            <div className={styles.label}>Base font size (px) — scales all text</div>
             <div className={styles.rangeRow}>
               <input
                 type="range"
                 min={10}
                 max={28}
                 value={settings.fontBaseSize}
-                onChange={(e) =>
-                  update({ fontBaseSize: Math.round(Number(e.target.value)) })
-                }
+                onChange={(e) => update({ fontBaseSize: Math.round(Number(e.target.value)) })}
               />
               <input
                 className={`${styles.input} ${styles.small}`}
@@ -169,9 +159,7 @@ export default function SettingsWheel({ settings, onChange, onReset }: Props) {
                 min={8}
                 max={28}
                 value={settings.nodeLabelBase}
-                onChange={(e) =>
-                  update({ nodeLabelBase: Number(e.target.value) })
-                }
+                onChange={(e) => update({ nodeLabelBase: Number(e.target.value) })}
               />
               <input
                 className={`${styles.input} ${styles.small}`}
@@ -179,9 +167,7 @@ export default function SettingsWheel({ settings, onChange, onReset }: Props) {
                 min={6}
                 max={48}
                 value={settings.nodeLabelBase}
-                onChange={(e) =>
-                  update({ nodeLabelBase: Number(e.target.value) || 8 })
-                }
+                onChange={(e) => update({ nodeLabelBase: Number(e.target.value) || 8 })}
               />
             </div>
           </div>

@@ -116,7 +116,7 @@ export const FONT_SIZE_SCHEMA: FontSizeEntry[] = [
   {
     cssVar: "--font-table-title",
     defaultValue: 1.35,
-    description: "\"Character Table\" heading",
+    description: '"Character Table" heading',
     category: "table",
     unit: "rem",
   },
@@ -202,7 +202,7 @@ export const FONT_SIZE_SCHEMA: FontSizeEntry[] = [
   {
     cssVar: "--font-filter-label",
     defaultValue: 0.68,
-    description: "\"Show:\" label next to filter pills",
+    description: '"Show:" label next to filter pills',
     category: "filter",
     unit: "rem",
   },
@@ -225,7 +225,7 @@ export const FONT_SIZE_SCHEMA: FontSizeEntry[] = [
   {
     cssVar: "--font-settings-hint",
     defaultValue: 0.78,
-    description: "\"Saved automatically\" hint",
+    description: '"Saved automatically" hint',
     category: "settings",
     unit: "rem",
   },
@@ -246,8 +246,5 @@ export const FONT_SIZE_SCHEMA: FontSizeEntry[] = [
  * Useful for the settings-reset logic.
  */
 export const FONT_SIZE_DEFAULTS: Record<string, string> = Object.fromEntries(
-  FONT_SIZE_SCHEMA.map((entry) => [
-    entry.cssVar,
-    `${entry.defaultValue}${entry.unit}`,
-  ]),
+  FONT_SIZE_SCHEMA.map((entry) => [entry.cssVar, `${entry.defaultValue}${entry.unit}`]),
 );

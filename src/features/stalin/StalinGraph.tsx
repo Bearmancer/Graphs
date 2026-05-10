@@ -2,13 +2,7 @@ import { useRef, useCallback, useState, useEffect, useMemo } from "react";
 import ForceGraph2D, { ForceGraphMethods } from "react-force-graph-2d";
 import { forceCollide } from "d3-force-3d";
 import type { GraphNode, GraphLink, GraphData, EdgeType } from "./types";
-import {
-  FACTION_COLORS,
-  EDGE_COLORS,
-  DASHED_EDGES,
-  PARTICLE_EDGES,
-  ARROW_EDGES,
-} from "./types";
+import { FACTION_COLORS, EDGE_COLORS, DASHED_EDGES, PARTICLE_EDGES, ARROW_EDGES } from "./types";
 import { linkSourceId, linkTargetId } from "../../utils/linkHelpers";
 
 interface PhysicsOptions {
@@ -33,13 +27,9 @@ function nodeRadius(centrality: number, nodeRelSize: number): number {
   return Math.sqrt(nodeRelSize * centrality);
 }
 
-function resolvePhysics(
-  data: GraphData,
-  options?: PhysicsOptions,
-): ResolvedPhysics {
+function resolvePhysics(data: GraphData, options?: PhysicsOptions): ResolvedPhysics {
   const nodeCount = Math.max(1, data.nodes.length);
-  const avgCentrality =
-    data.nodes.reduce((sum, node) => sum + node.centrality, 0) / nodeCount;
+  const avgCentrality = data.nodes.reduce((sum, node) => sum + node.centrality, 0) / nodeCount;
   const nodeRelSize = options?.nodeRelSize ?? 18;
   const collisionPad = options?.collisionPad ?? 6;
   const autoCharge = -(nodeRelSize * (11 + Math.log2(nodeCount + 1) * 2.2));
@@ -86,10 +76,7 @@ export default function StalinGraph({
     height: document.documentElement.clientHeight || window.innerHeight,
   });
   const [dimensions, setDimensions] = useState(getViewportSize);
-  const physicsConfig = useMemo(
-    () => resolvePhysics(data, physics),
-    [data, physics],
-  );
+  const physicsConfig = useMemo(() => resolvePhysics(data, physics), [data, physics]);
 
   useEffect(() => {
     const fg = fgRef.current;
@@ -97,20 +84,15 @@ export default function StalinGraph({
     hasZoomedRef.current = false;
     const api = fg as any;
     api.d3Force("charge")?.strength(physicsConfig.charge);
-    api
-      .d3Force("link")
-      ?.distance(physicsConfig.linkDistance)
-      .strength(physicsConfig.linkStrength);
+    api.d3Force("link")?.distance(physicsConfig.linkDistance).strength(physicsConfig.linkStrength);
     api.d3Force("x")?.strength(physicsConfig.centerStrength);
     api.d3Force("y")?.strength(physicsConfig.centerStrength);
     api.d3Force(
       "collision",
       forceCollide(
         (node: unknown) =>
-          nodeRadius(
-            (node as GraphNode).centrality,
-            physicsConfig.nodeRelSize,
-          ) + physicsConfig.collisionPad,
+          nodeRadius((node as GraphNode).centrality, physicsConfig.nodeRelSize) +
+          physicsConfig.collisionPad,
       ),
     );
     api.d3ReheatSimulation();
@@ -166,13 +148,7 @@ export default function StalinGraph({
       const color = FACTION_COLORS[node.faction] ?? "#888";
 
       ctx.save();
-      ctx.globalAlpha = dimmed
-        ? 0.1
-        : isHovered
-          ? 1.0
-          : isConnected
-            ? 0.98
-            : 1.0;
+      ctx.globalAlpha = dimmed ? 0.1 : isHovered ? 1.0 : isConnected ? 0.98 : 1.0;
 
       if (isHovered || isConnected) {
         ctx.shadowColor = color;
@@ -235,10 +211,7 @@ export default function StalinGraph({
     (link: GraphLink) => {
       const src = linkSourceId(link);
       const tgt = linkTargetId(link);
-      const dimmed =
-        hoveredNode !== null &&
-        src !== hoveredNode.id &&
-        tgt !== hoveredNode.id;
+      const dimmed = hoveredNode !== null && src !== hoveredNode.id && tgt !== hoveredNode.id;
       const base = EDGE_COLORS[link.type] ?? "#666";
       return dimmed ? `${base}18` : `${base}BB`;
     },
@@ -250,15 +223,12 @@ export default function StalinGraph({
       if (!hoveredNode) return base;
       const src = linkSourceId(link);
       const tgt = linkTargetId(link);
-      return src === hoveredNode.id || tgt === hoveredNode.id
-        ? base * 1.8
-        : base * 0.55;
+      return src === hoveredNode.id || tgt === hoveredNode.id ? base * 1.8 : base * 0.55;
     },
     [hoveredNode],
   );
   const getLinkDash = useCallback(
-    (link: GraphLink): number[] | null =>
-      DASHED_EDGES.has(link.type as EdgeType) ? [4, 4] : null,
+    (link: GraphLink): number[] | null => (DASHED_EDGES.has(link.type as EdgeType) ? [4, 4] : null),
     [],
   );
   const getLinkParticles = useCallback(
@@ -270,14 +240,8 @@ export default function StalinGraph({
     [],
   );
 
-  const handleNodeClick = useCallback(
-    (node: GraphNode) => onNodeClick(node),
-    [onNodeClick],
-  );
-  const handleNodeHover = useCallback(
-    (node: GraphNode | null) => setHoveredNode(node),
-    [],
-  );
+  const handleNodeClick = useCallback((node: GraphNode) => onNodeClick(node), [onNodeClick]);
+  const handleNodeHover = useCallback((node: GraphNode | null) => setHoveredNode(node), []);
   const handleEngineStop = useCallback(() => {
     if (!hasZoomedRef.current) {
       fgRef.current?.zoomToFit(600, 60);
@@ -301,18 +265,10 @@ export default function StalinGraph({
       d3VelocityDecay={0.35}
       onEngineStop={handleEngineStop}
       nodeCanvasObject={
-        paintNode as (
-          node: object,
-          ctx: CanvasRenderingContext2D,
-          globalScale: number,
-        ) => void
+        paintNode as (node: object, ctx: CanvasRenderingContext2D, globalScale: number) => void
       }
       nodeCanvasObjectMode={() => "replace"}
-      nodePointerAreaPaint={(
-        node: object,
-        color: string,
-        ctx: CanvasRenderingContext2D,
-      ) => {
+      nodePointerAreaPaint={(node: object, color: string, ctx: CanvasRenderingContext2D) => {
         const currentNode = node as GraphNode;
         ctx.fillStyle = color;
         ctx.beginPath();
@@ -335,12 +291,7 @@ export default function StalinGraph({
       linkDirectionalArrowLength={getLinkArrow as (link: object) => number}
       linkDirectionalArrowRelPos={1}
       onNodeClick={handleNodeClick as (node: object, event: MouseEvent) => void}
-      onNodeHover={
-        handleNodeHover as (
-          node: object | null,
-          prevNode: object | null,
-        ) => void
-      }
+      onNodeHover={handleNodeHover as (node: object | null, prevNode: object | null) => void}
     />
   );
 }

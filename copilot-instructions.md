@@ -8,7 +8,8 @@ colour palettes, and chapter data. The library provides shared
 components, generic types, and utilities that all variants build on.
 
 Currently implemented variants:
-- **Stalin** (*Stalin: The Court of the Red Tsar* by Montefiore) —
+
+- **Stalin** (_Stalin: The Court of the Red Tsar_ by Montefiore) —
   force-directed network graph.
 - **Bülow** (scaffold only) — hierarchy / family-tree graph.
   Named after Hans von Bülow as a metaphor for linear top-to-bottom
@@ -67,6 +68,7 @@ src/
 ## Key Conventions
 
 ### Generic Type System
+
 - **`src/graph-types/index.ts`** defines the base interfaces: `GraphNode`,
   `GraphLink`, `GraphData`, `ChapterMeta`, and `GraphVariant<TGroup, TEdge, TRelevance>`.
 - Each variant extends these generics with book-specific union types
@@ -76,7 +78,9 @@ src/
   or the specific variant's `types.ts`.
 
 ### Variant Structure
+
 Each variant lives in `src/features/<variant-id>/` and contains:
+
 - `types.ts` — union types, colour maps (`Record<Group, string>`),
   label maps, and edge style sets (`Set<EdgeType>`).
 - `variant.ts` — a `GraphVariant` instance wiring all maps together.
@@ -85,6 +89,7 @@ Each variant lives in `src/features/<variant-id>/` and contains:
 - A page orchestrator (e.g. `BookExperience.tsx`).
 
 ### Incremental Chapter Data (No Spoilers)
+
 - Each chapter JSON is **cumulative**: ch1 includes all prologue characters
   plus chapter 1 additions.
 - `laterRelevance` and `laterNote` fields are **stripped** from per-chapter
@@ -93,11 +98,13 @@ Each variant lives in `src/features/<variant-id>/` and contains:
   subsequent chapter files and tracked in a removal list.
 
 ### Colour System
+
 - Each variant defines its own colour constants (e.g. `FACTION_COLORS`,
   `LINEAGE_COLORS`). Always use the canonical constant from the variant's
   `types.ts`; never hard-code hex colours elsewhere.
 
 ### Centralised CSS Variables
+
 - All font sizes are **CSS custom properties** in `:root` (`index.css`).
 - Component CSS modules reference these variables
   (e.g. `var(--font-filter-pill)`).
@@ -107,11 +114,13 @@ Each variant lives in `src/features/<variant-id>/` and contains:
 - Font options are defined in `src/fonts.ts`.
 
 ### Code De-duplication
+
 - **Link endpoint extraction** — use `linkSourceId()` / `linkTargetId()` /
   `linkEndpointIds()` from `src/utils/linkHelpers.ts` instead of inline
   `typeof link.source === "object" ? … : …` patterns.
 
 ### View Modes
+
 - **Graph view** (default): Canvas renderer. Clicking a node opens a
   side panel with a **brief summary**.
 - **Table view**: Searchable data table. Clicking a character opens a

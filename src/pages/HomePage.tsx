@@ -62,10 +62,7 @@ export default function HomePage({ onSelect }: HomePageProps) {
               onClick={() => onSelect(card.id)}
             >
               <span className={styles.cardIcon}>{card.icon}</span>
-              <span
-                className={styles.cardMeta}
-                style={{ color: card.accentColor }}
-              >
+              <span className={styles.cardMeta} style={{ color: card.accentColor }}>
                 {card.layoutLabel}
               </span>
               <span className={styles.cardTitle}>{variant.title}</span>

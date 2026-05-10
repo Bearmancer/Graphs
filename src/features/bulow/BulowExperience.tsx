@@ -14,8 +14,8 @@ export default function BulowExperience({ onBack }: BulowExperienceProps) {
         <span className={styles.icon}>🌳</span>
         <h1 className={styles.title}>Family Tree — Hierarchy Graph</h1>
         <p className={styles.body}>
-          The Bülow hierarchy renderer and its dataset are still being built.
-          Check back once chapter data and the tree layout are wired up.
+          The Bülow hierarchy renderer and its dataset are still being built. Check back once
+          chapter data and the tree layout are wired up.
         </p>
       </div>
     </main>

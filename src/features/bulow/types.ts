@@ -54,13 +54,13 @@ export interface GraphLink extends GenericLink {
 // ---------------------------------------------------------------------------
 
 export const LINEAGE_COLORS: Record<LineageRole, string> = {
-  patriarch: "#CFB53B",   // old gold
-  matriarch: "#C08081",   // dusty rose
-  heir: "#4682B4",        // steel blue
-  spouse: "#DA70D6",      // orchid
-  sibling: "#5F9EA0",     // cadet blue
-  child: "#87CEEB",       // sky blue
-  extended: "#A9A9A9",    // dark grey
+  patriarch: "#CFB53B", // old gold
+  matriarch: "#C08081", // dusty rose
+  heir: "#4682B4", // steel blue
+  spouse: "#DA70D6", // orchid
+  sibling: "#5F9EA0", // cadet blue
+  child: "#87CEEB", // sky blue
+  extended: "#A9A9A9", // dark grey
 };
 
 export const LINEAGE_LABELS: Record<LineageRole, string> = {
@@ -74,12 +74,12 @@ export const LINEAGE_LABELS: Record<LineageRole, string> = {
 };
 
 export const KINSHIP_COLORS: Record<KinshipType, string> = {
-  parent_of: "#FF8F00",   // amber
-  married_to: "#E91E63",  // pink
-  sibling_of: "#4CAF50",  // green
+  parent_of: "#FF8F00", // amber
+  married_to: "#E91E63", // pink
+  sibling_of: "#4CAF50", // green
   half_sibling: "#8BC34A", // light green
-  adopted: "#26C6DA",     // cyan
-  guardian_of: "#BA68C8",  // lavender
+  adopted: "#26C6DA", // cyan
+  guardian_of: "#BA68C8", // lavender
 };
 
 export const KINSHIP_LABELS: Record<KinshipType, string> = {

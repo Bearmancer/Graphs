@@ -1,11 +1,6 @@
 import { useEffect, useCallback } from "react";
 import type { GraphNode, GraphLink, EdgeType } from "../types";
-import {
-  FACTION_COLORS,
-  FACTION_LABELS,
-  EDGE_COLORS,
-  EDGE_LABELS,
-} from "../types";
+import { FACTION_COLORS, FACTION_LABELS, EDGE_COLORS, EDGE_LABELS } from "../types";
 import { linkSourceId, linkTargetId } from "../utils/linkHelpers";
 import styles from "./NodeDetail.module.css";
 
@@ -51,23 +46,15 @@ export default function NodeDetail({
     return srcId === node.id || tgtId === node.id;
   });
 
-  const totalStrength = relevantLinks.reduce(
-    (sum, link) => sum + link.weight,
-    0,
-  );
-  const relationshipCounts = relevantLinks.reduce<Record<string, number>>(
-    (acc, link) => {
-      acc[link.type] = (acc[link.type] ?? 0) + 1;
-      return acc;
-    },
-    {},
-  );
+  const totalStrength = relevantLinks.reduce((sum, link) => sum + link.weight, 0);
+  const relationshipCounts = relevantLinks.reduce<Record<string, number>>((acc, link) => {
+    acc[link.type] = (acc[link.type] ?? 0) + 1;
+    return acc;
+  }, {});
   const relationshipEntries = Object.entries(relationshipCounts)
     .map(([type, count]) => ({ type: type as EdgeType, count }))
     .sort((a, b) => b.count - a.count);
-  const strongestLinks = [...relevantLinks]
-    .sort((a, b) => b.weight - a.weight)
-    .slice(0, 3);
+  const strongestLinks = [...relevantLinks].sort((a, b) => b.weight - a.weight).slice(0, 3);
 
   const factionColor = FACTION_COLORS[node.faction] ?? "#888";
 
@@ -78,17 +65,10 @@ export default function NodeDetail({
 
     function onMove(ev: MouseEvent | TouchEvent) {
       const clientX =
-        "touches" in ev
-          ? (ev as TouchEvent).touches[0].clientX
-          : (ev as MouseEvent).clientX;
+        "touches" in ev ? (ev as TouchEvent).touches[0].clientX : (ev as MouseEvent).clientX;
       const newW = Math.max(minW, Math.min(maxW, window.innerWidth - clientX));
-      if (typeof onRequestPanelWidthChange === "function")
-        onRequestPanelWidthChange(newW);
-      else
-        document.documentElement.style.setProperty(
-          "--side-panel-width",
-          `${newW}px`,
-        );
+      if (typeof onRequestPanelWidthChange === "function") onRequestPanelWidthChange(newW);
+      else document.documentElement.style.setProperty("--side-panel-width", `${newW}px`);
     }
 
     function onUp() {
@@ -121,18 +101,11 @@ export default function NodeDetail({
           onTouchStart={startResize}
           aria-hidden="true"
         />
-        <button
-          className={styles.closeBtn}
-          onClick={onClose}
-          aria-label="Close"
-        >
+        <button className={styles.closeBtn} onClick={onClose} aria-label="Close">
           ✕
         </button>
 
-        <div
-          className={styles.header}
-          style={{ borderLeftColor: factionColor }}
-        >
+        <div className={styles.header} style={{ borderLeftColor: factionColor }}>
           <h2 className={styles.name}>{node.label}</h2>
           {node.nicknames && node.nicknames.length > 0 && (
             <p className={styles.nicknames}>{node.nicknames.join(" · ")}</p>
@@ -178,9 +151,7 @@ export default function NodeDetail({
             <ul className={styles.countList}>
               {relationshipEntries.map((entry) => (
                 <li key={entry.type} className={styles.countItem}>
-                  <span className={styles.countLabel}>
-                    {EDGE_LABELS[entry.type] ?? entry.type}
-                  </span>
+                  <span className={styles.countLabel}>{EDGE_LABELS[entry.type] ?? entry.type}</span>
                   <span className={styles.countValue}>{entry.count}</span>
                 </li>
               ))}
@@ -199,12 +170,9 @@ export default function NodeDetail({
                 const otherNode = nodeMap[otherId];
                 return (
                   <li key={`${otherId}-${index}`} className={styles.keyItem}>
-                    <span className={styles.keyTitle}>
-                      {otherNode?.label ?? otherId}
-                    </span>
+                    <span className={styles.keyTitle}>{otherNode?.label ?? otherId}</span>
                     <span className={styles.keyMeta}>
-                      {EDGE_LABELS[link.type as EdgeType] ?? link.type} ·
-                      strength {link.weight}
+                      {EDGE_LABELS[link.type as EdgeType] ?? link.type} · strength {link.weight}
                     </span>
                   </li>
                 );
@@ -215,9 +183,7 @@ export default function NodeDetail({
 
         {viewMode === "table" && relevantLinks.length > 0 && (
           <div className={styles.section}>
-            <div className={styles.sectionLabel}>
-              Full Chronological Relationships
-            </div>
+            <div className={styles.sectionLabel}>Full Chronological Relationships</div>
             <ul className={styles.relList}>
               {relevantLinks.map((link, i) => {
                 const srcId = linkSourceId(link);
@@ -243,9 +209,7 @@ export default function NodeDetail({
                       >
                         {EDGE_LABELS[link.type as EdgeType] ?? link.type}
                       </span>
-                      <span className={styles.relTarget}>
-                        {otherNode?.label ?? otherId}
-                      </span>
+                      <span className={styles.relTarget}>{otherNode?.label ?? otherId}</span>
                     </div>
                     {otherNode && (
                       <div className={styles.relCharMeta}>
@@ -259,14 +223,11 @@ export default function NodeDetail({
                         >
                           {FACTION_LABELS[otherNode.faction]}
                         </span>
-                        <span className={styles.relCharTitle}>
-                          {otherNode.title}
-                        </span>
+                        <span className={styles.relCharTitle}>{otherNode.title}</span>
                       </div>
                     )}
                     <div className={styles.relStrength}>
-                      Strength {link.weight}/10 · Centrality{" "}
-                      {otherNode?.centrality ?? "—"}/10
+                      Strength {link.weight}/10 · Centrality {otherNode?.centrality ?? "—"}/10
                     </div>
                     <span className={styles.relDesc}>{link.description}</span>
                   </li>

@@ -46,25 +46,29 @@ const chapters: ChapterMeta[] = [
   {
     id: "ch5",
     label: "Chapter 5",
-    description: "Holidays and Hell – the Politburo's seaside life (1931–32); Beria enters Stalin's circle",
+    description:
+      "Holidays and Hell – the Politburo's seaside life (1931–32); Beria enters Stalin's circle",
     data: ch5Data as unknown as GraphData,
   },
   {
     id: "ch7",
     label: "Chapter 7",
-    description: "Stalin the Intellectual – Gorky's dinner and the birth of Socialist Realism (1932)",
+    description:
+      "Stalin the Intellectual – Gorky's dinner and the birth of Socialist Realism (1932)",
     data: ch7Data as unknown as GraphData,
   },
   {
     id: "ch9",
     label: "Chapter 9",
-    description: "The Omnipotent Widower – Stalin after Nadya's death; Sergo's rising power (1932–33)",
+    description:
+      "The Omnipotent Widower – Stalin after Nadya's death; Sergo's rising power (1932–33)",
     data: ch9Data as unknown as GraphData,
   },
   {
     id: "ch11",
     label: "Chapter 11",
-    description: "Assassination of the Favourite – Kirov murdered; Yezhov begins his rise (Dec 1934)",
+    description:
+      "Assassination of the Favourite – Kirov murdered; Yezhov begins his rise (Dec 1934)",
     data: ch11Data as unknown as GraphData,
   },
   {
@@ -82,7 +86,8 @@ const chapters: ChapterMeta[] = [
   {
     id: "ch23",
     label: "Chapter 23",
-    description: "The Great Terror – mass purges strip the court; Bukharin, Tukhachevsky, and more are gone (1937–38)",
+    description:
+      "The Great Terror – mass purges strip the court; Bukharin, Tukhachevsky, and more are gone (1937–38)",
     data: ch23Data as unknown as GraphData,
   },
   {
@@ -94,7 +99,8 @@ const chapters: ChapterMeta[] = [
   {
     id: "ch39",
     label: "Chapter 39",
-    description: "The Supremo of Stalingrad – Stalin directs the pivotal battle from Moscow (1942–43)",
+    description:
+      "The Supremo of Stalingrad – Stalin directs the pivotal battle from Moscow (1942–43)",
     data: ch39Data as unknown as GraphData,
   },
   {
@@ -112,7 +118,8 @@ const chapters: ChapterMeta[] = [
   {
     id: "ch58",
     label: "Chapter 58",
-    description: "Stalin's Death – the final court; Stalin collapses; the succession opens (Mar 1953)",
+    description:
+      "Stalin's Death – the final court; Stalin collapses; the succession opens (Mar 1953)",
     data: ch58Data as unknown as GraphData,
   },
 ];

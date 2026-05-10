@@ -168,13 +168,6 @@ export const EDGE_LABELS: Record<EdgeType, string> = {
 // Edge style sets
 // ---------------------------------------------------------------------------
 
-export const DASHED_EDGES = new Set<EdgeType>([
-  "rival",
-  "enemy_purged" as EdgeType,
-]);
+export const DASHED_EDGES = new Set<EdgeType>(["rival", "enemy_purged" as EdgeType]);
 export const PARTICLE_EDGES = new Set<EdgeType>(["ally", "friend_of"]);
-export const ARROW_EDGES = new Set<EdgeType>([
-  "subordinate",
-  "bodyguard_of",
-  "patron_of",
-]);
+export const ARROW_EDGES = new Set<EdgeType>(["subordinate", "bodyguard_of", "patron_of"]);

@@ -3,17 +3,15 @@ import StalinGraph, { RenderSettings } from "./StalinGraph";
 import NodeDetail from "../../components/NodeDetail";
 import FilterBar from "../../components/FilterBar";
 import SettingsWheel from "../../components/SettingsWheel";
-import {
-  GraphNode,
-  GraphLink,
-  EdgeType,
-  EDGE_LABELS,
-} from "./types";
+import { GraphNode, GraphLink, EdgeType, EDGE_LABELS } from "./types";
 import chapters, { DEFAULT_CHAPTER_ID } from "./data/chapters";
 import CharacterTable from "../../components/CharacterTable";
 import { DEFAULT_BASE_SIZE_PX } from "../../fontSizes";
 
-const DEFAULT_CHAPTER_IDX = Math.max(0, chapters.findIndex((c) => c.id === DEFAULT_CHAPTER_ID));
+const DEFAULT_CHAPTER_IDX = Math.max(
+  0,
+  chapters.findIndex((c) => c.id === DEFAULT_CHAPTER_ID),
+);
 const ALL_EDGE_TYPES = new Set(Object.keys(EDGE_LABELS) as EdgeType[]);
 
 type AllSettings = {
@@ -25,10 +23,10 @@ type AllSettings = {
 };
 
 const DEFAULTS: AllSettings = {
-  fontUI: "'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
+  fontUI:
+    "'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
   fontSerif: "'Spectral', serif",
-  fontMono:
-    "ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', 'Courier New', monospace",
+  fontMono: "ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', 'Courier New', monospace",
   fontBaseSize: DEFAULT_BASE_SIZE_PX,
   nodeLabelBase: 12,
 };
@@ -36,11 +34,9 @@ const DEFAULTS: AllSettings = {
 function readRootSettings(): AllSettings {
   try {
     const cs = getComputedStyle(document.documentElement);
-    const read = (key: string, fallback: string) =>
-      (cs.getPropertyValue(key) || fallback).trim();
+    const read = (key: string, fallback: string) => (cs.getPropertyValue(key) || fallback).trim();
     const fontBaseSize =
-      parseFloat(read("--font-base-size", `${DEFAULTS.fontBaseSize}px`)) ||
-      DEFAULTS.fontBaseSize;
+      parseFloat(read("--font-base-size", `${DEFAULTS.fontBaseSize}px`)) || DEFAULTS.fontBaseSize;
     const nodeLabelBase =
       parseFloat(read("--node-label-base-size", `${DEFAULTS.nodeLabelBase}`)) ||
       DEFAULTS.nodeLabelBase;
@@ -64,9 +60,7 @@ export default function BookExperience({ onBack }: { onBack: () => void }) {
   const allNodes = graphData.nodes as GraphNode[];
   const [viewMode, setViewMode] = useState<"graph" | "table">("graph");
   const [selectedNode, setSelectedNode] = useState<GraphNode | null>(null);
-  const [activeFilters, setActiveFilters] = useState<Set<EdgeType>>(
-    new Set(ALL_EDGE_TYPES),
-  );
+  const [activeFilters, setActiveFilters] = useState<Set<EdgeType>>(new Set(ALL_EDGE_TYPES));
   const [activeTab, setActiveTab] = useState<"filters" | "search">("filters");
   const [searchQuery, setSearchQuery] = useState("");
   const [panelWidth, setPanelWidth] = useState<number>(() => {
@@ -96,10 +90,7 @@ export default function BookExperience({ onBack }: { onBack: () => void }) {
     root.style.setProperty("--font-serif", settings.fontSerif);
     root.style.setProperty("--font-mono", settings.fontMono);
     root.style.setProperty("--font-base-size", `${settings.fontBaseSize}px`);
-    root.style.setProperty(
-      "--node-label-base-size",
-      `${settings.nodeLabelBase}`,
-    );
+    root.style.setProperty("--node-label-base-size", `${settings.nodeLabelBase}`);
     root.style.setProperty("--side-panel-width", `${panelWidth}px`);
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(settings));
@@ -130,10 +121,7 @@ export default function BookExperience({ onBack }: { onBack: () => void }) {
     const maxW = Math.floor(window.innerWidth * 0.85);
     const clamped = Math.max(minW, Math.min(maxW, Math.round(w)));
     setPanelWidth(clamped);
-    document.documentElement.style.setProperty(
-      "--side-panel-width",
-      `${clamped}px`,
-    );
+    document.documentElement.style.setProperty("--side-panel-width", `${clamped}px`);
   }, []);
 
   const handleSettingsChange = (newSettings: Record<string, unknown>) => {
@@ -153,12 +141,7 @@ export default function BookExperience({ onBack }: { onBack: () => void }) {
     if (!q) return sorted.slice(0, 20);
     return sorted
       .filter((node) => {
-        const text = [
-          node.label,
-          node.title,
-          node.bio,
-          ...(node.nicknames ?? []),
-        ]
+        const text = [node.label, node.title, node.bio, ...(node.nicknames ?? [])]
           .join(" ")
           .toLowerCase();
         return text.includes(q);

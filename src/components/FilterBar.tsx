@@ -40,11 +40,7 @@ const FilterBar: React.FC<FilterBarProps> = ({
 }) => {
   return (
     <div className={styles.bar} role="toolbar" aria-label="Graph controls">
-      <button
-        className={styles.backButton}
-        onClick={onBack}
-        aria-label="Back to home"
-      >
+      <button className={styles.backButton} onClick={onBack} aria-label="Back to home">
         ← Home
       </button>
       <select
@@ -61,11 +57,7 @@ const FilterBar: React.FC<FilterBarProps> = ({
         ))}
       </select>
 
-      <div
-        className={styles.viewModes}
-        role="tablist"
-        aria-label="View modes"
-      >
+      <div className={styles.viewModes} role="tablist" aria-label="View modes">
         <button
           id="graph-tab"
           role="tab"
@@ -179,9 +171,7 @@ const FilterBar: React.FC<FilterBarProps> = ({
                   </button>
                 ))}
                 {searchResults.length === 0 && (
-                  <div className={styles.searchEmpty}>
-                    No matches in visible chapter data.
-                  </div>
+                  <div className={styles.searchEmpty}>No matches in visible chapter data.</div>
                 )}
               </div>
             </div>
@@ -191,8 +181,7 @@ const FilterBar: React.FC<FilterBarProps> = ({
 
       {viewMode === "table" && (
         <div className={styles.modeHint}>
-          Table view keeps the same chapter dataset in a searchable reference
-          layout.
+          Table view keeps the same chapter dataset in a searchable reference layout.
         </div>
       )}
     </div>

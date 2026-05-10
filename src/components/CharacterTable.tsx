@@ -1,9 +1,6 @@
 import { useMemo } from "react";
 import type { GraphLink, GraphNode } from "../types";
-import {
-  FACTION_COLORS,
-  FACTION_LABELS,
-} from "../types";
+import { FACTION_COLORS, FACTION_LABELS } from "../types";
 import { linkSourceId, linkTargetId } from "../utils/linkHelpers";
 import styles from "./CharacterTable.module.css";
 
@@ -42,12 +39,7 @@ export default function CharacterTable({
     const q = searchQuery.trim().toLowerCase();
     if (!q) return sorted;
     return sorted.filter((node) =>
-      [
-        node.label,
-        node.title,
-        node.bio,
-        ...(node.nicknames ?? []),
-      ]
+      [node.label, node.title, node.bio, ...(node.nicknames ?? [])]
         .join(" ")
         .toLowerCase()
         .includes(q),
@@ -117,32 +109,24 @@ export default function CharacterTable({
                           {FACTION_LABELS[node.faction]}
                         </span>
                         {node.nicknames?.length ? (
-                          <span className={styles.secondary}>
-                            {node.nicknames.join(" · ")}
-                          </span>
+                          <span className={styles.secondary}>{node.nicknames.join(" · ")}</span>
                         ) : null}
                       </div>
                     </div>
                   </td>
                   <td>
                     <div className={styles.role}>{node.title}</div>
-                    <div className={styles.centrality}>
-                      Centrality {node.centrality}/10
-                    </div>
+                    <div className={styles.centrality}>Centrality {node.centrality}/10</div>
                   </td>
                   <td className={styles.textCell}>{node.bio}</td>
-                  <td className={styles.numeric}>
-                    {connectionCounts.get(node.id) ?? 0}
-                  </td>
+                  <td className={styles.numeric}>{connectionCounts.get(node.id) ?? 0}</td>
                 </tr>
               );
             })}
           </tbody>
         </table>
         {rows.length === 0 && (
-          <div className={styles.empty}>
-            No characters match the current search.
-          </div>
+          <div className={styles.empty}>No characters match the current search.</div>
         )}
       </div>
     </section>
