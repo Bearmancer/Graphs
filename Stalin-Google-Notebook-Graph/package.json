@@ -1,0 +1,24 @@
+{
+  "name": "stalin-graph",
+  "version": "1.0.0",
+  "description": "Physics-Based Force-Directed Graph Simulation of Factional Dynamics in Stalin's Soviet Court, 1932",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-force-graph-2d": "^1.29.1"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react-swc": "^3.11.0",
+    "typescript": "^7.3.3",
+    "vite": "^8.0.14"
+  }
+}
